@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AZNET Admin</title>
+
+<link rel="stylesheet" href="css/admin.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body class="admin-page">
+
+<div class="container">
+
+<div class="header-card">
+
+    <div>
+
+        <h2 id="greeting"></h2>
+
+        <p id="tanggal"></p>
+
+        <span class="online">
+            🟢 Sistem Online
+        </span>
+
+    </div>
+
+<div class="right">
+
+    <!-- NOTIFIKASI -->
+    <div class="notif-box">
+
+        <div class="notif-btn" id="notifBtn">
+
+            <i class="fa-solid fa-bell"></i>
+
+            <span id="notifBadge">0</span>
+
+        </div>
+
+        <div class="notif-dropdown" id="notifDropdown">
+
+            <h3>🔔 Notifikasi</h3>
+
+            <div id="notifList"></div>
+
+        </div>
+
+    </div>
+
+    <!-- JAM -->
+    <h1 id="jam"></h1>
+
+    <!-- DASHBOARD -->
+    <a href="dashboard.html" class="back">
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+        Dashboard
+
+    </a>
+
+</div>
+
+</div>
+
+<div class="cards">
+
+    <div class="card">
+
+        <i class="fa-solid fa-users"></i>
+
+        <h2 id="totalKaryawan">0</h2>
+
+        <p>Total Karyawan</p>
+
+        <span id="infoKaryawan">0 Karyawan</span>
+
+    </div>
+
+<div class="card" id="btnHadir">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <h2 id="hadirHariIni">0</h2>
+
+    <p>Hadir Hari Ini</p>
+
+    <span>Klik untuk melihat</span>
+
+</div>
+
+    <div class="card">
+
+        <i class="fa-solid fa-file-circle-plus"></i>
+
+        <h2 id="izinHariIni">0</h2>
+
+        <p>Izin / Cuti</p>
+
+        <span id="infoIzin">0 Menunggu Approval</span>
+
+    </div>
+
+<div class="card"
+id="btnAlpha">
+
+    <i class="fa-solid fa-circle-xmark"></i>
+
+    <h2 id="alphaHariIni">0</h2>
+
+    <p>Alpha</p>
+
+    <span id="infoAlpha">
+        Klik untuk melihat
+    </span>
+
+</div>
+
+</div>
+
+<div class="table-card">
+
+    <h2>🕒 Aktivitas Terbaru</h2>
+
+    <div id="aktivitasTerbaru"></div>
+
+</div>
+
+<div class="table-card">
+
+    <h2>📊 Statistik Kehadiran Hari Ini</h2>
+
+    <div class="progress-box">
+
+        <div class="progress">
+
+            <div
+            id="progressHadir"
+            class="progress-fill"></div>
+
+        </div>
+
+        <p id="persenStatistik">
+            0% Kehadiran
+        </p>
+
+    </div>
+
+</div>
+
+<div class="table-card">
+
+    <h2>
+        📋 Ringkasan Hari Ini
+    </h2>
+
+    <div class="summary-grid">
+
+        <div class="summary-item">
+
+            <span>Total Karyawan</span>
+
+            <strong id="sumKaryawan">0</strong>
+
+        </div>
+
+        <div class="summary-item">
+
+            <span>Hadir Hari Ini</span>
+
+            <strong id="sumHadir">0</strong>
+
+        </div>
+
+        <div class="summary-item">
+
+            <span>Belum Absen</span>
+
+            <strong id="sumAlpha">0</strong>
+
+        </div>
+
+        <div class="summary-item">
+
+            <span>Izin / Cuti</span>
+
+            <strong id="sumIzin">0</strong>
+
+        </div>
+
+        <div class="summary-item full">
+
+            <span>Persentase Kehadiran</span>
+
+            <strong id="sumPersen">0%</strong>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =============================
+     MENU JADWAL KERJA
+============================= -->
+
+<div class="admin-tools">
+
+    <!-- KALENDER KERJA -->
+    <div
+        class="card kalender-card"
+        id="btnKalenderKerja">
+
+        <i class="fa-solid fa-calendar-days"></i>
+
+        <h2>Kalender Kerja</h2>
+
+        <p>
+            Atur jadwal kerja dan hari libur
+        </p>
+
+    </div>
+
+
+    <!-- JADWAL KARYAWAN -->
+    <div
+        class="card kalender-card"
+        id="btnJadwalKaryawan">
+
+        <i class="fa-solid fa-users-gear"></i>
+
+        <h2>Jadwal Karyawan</h2>
+
+        <p>
+            Atur jadwal libur setiap karyawan
+        </p>
+
+    </div>
+
+</div>
+
+<!-- =============================
+     MENU LEMBUR
+============================= -->
+
+<div
+    class="card kalender-card"
+    id="btnLembur">
+
+    <i class="fa-solid fa-business-time"></i>
+
+    <h2>Lembur</h2>
+
+    <p>
+        Atur lembur dan nominal karyawan
+    </p>
+
+</div>
+
+<!-- =============================
+     MODAL LEMBUR
+============================= -->
+
+<div id="modalLembur" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="tutupLembur()">✖</span>
+
+        <div class="lembur-header">
+            <div class="lembur-header-icon">
+                <i class="fa-solid fa-business-time"></i>
+            </div>
+
+            <div>
+                <h2>Pengaturan Lembur</h2>
+                <p>Atur jadwal dan nominal lembur karyawan.</p>
+            </div>
+        </div>
+
+
+<!-- =============================
+     FORM LEMBUR
+============================= -->
+
+<div class="lembur-form-grid">
+
+    <!-- Karyawan -->
+    <div class="lembur-form-group">
+        <label>Karyawan</label>
+        <select id="lemburKaryawan">
+            <option value="">-- Pilih Karyawan --</option>
+        </select>
+    </div>
+
+    <!-- Tanggal -->
+    <div class="lembur-form-group">
+        <label>Tanggal Lembur</label>
+        <input type="date" id="tanggalLembur">
+    </div>
+
+    <!-- Jenis Pekerjaan -->
+    <div class="lembur-form-group">
+        <label>Jenis Pekerjaan</label>
+
+        <select id="jenisLembur">
+            <option value="">-- Pilih Pekerjaan --</option>
+            <option value="Instalasi WiFi">Instalasi WiFi</option>
+            <option value="Perbaikan / Maintenance">
+                Perbaikan / Maintenance
+            </option>
+            <option value="Packing">Packing</option>
+            <option value="Pengiriman">Pengiriman</option>
+            <option value="Pekerjaan Teknis">
+                Pekerjaan Teknis
+            </option>
+            <option value="Lainnya">Lainnya</option>
+        </select>
+    </div>
+
+    <!-- Nominal -->
+    <div class="lembur-form-group">
+        <label>Nominal Lembur</label>
+
+        <input
+            type="number"
+            id="nominalLembur"
+            placeholder="Contoh: 150000"
+            min="0"
+        >
+    </div>
+
+    <!-- Keterangan -->
+    <div class="lembur-form-group full">
+        <label>Keterangan Pekerjaan</label>
+
+        <textarea
+            id="keteranganLembur"
+            rows="4"
+            placeholder="Contoh: Instalasi WiFi + penarikan kabel..."
+        ></textarea>
+    </div>
+
+    <!-- Total -->
+    <div class="lembur-form-group full">
+
+        <div class="total-lembur-box">
+
+            <span>Total Lembur</span>
+
+            <strong id="totalUangLembur">
+                Rp0
+            </strong>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+        <!-- BUTTON -->
+
+        <div class="lembur-actions">
+
+            <button
+                type="button"
+                class="btn-batal-lembur"
+                onclick="tutupLembur()">
+
+                Batal
+
+            </button>
+
+            <button
+                type="button"
+                class="btn-simpan-lembur"
+                onclick="simpanLembur()">
+
+                <i class="fa-solid fa-floppy-disk"></i>
+                Simpan Lembur
+
+            </button>
+
+        </div>
+
+
+        <!-- RIWAYAT -->
+
+        <div class="riwayat-lembur">
+
+            <h3>📋 Riwayat Lembur</h3>
+
+            <p>
+                Data lembur yang sudah dicatat.
+            </p>
+
+            <div id="riwayatLembur">
+                🕐 Belum ada data lembur.
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =============================
+     MODAL JADWAL KARYAWAN
+============================= -->
+
+<div id="modalJadwalKaryawan" class="modal">
+
+    <div class="modal-content jadwal-modal">
+
+        <span
+            class="close"
+            onclick="tutupJadwalKaryawan()">
+
+            ✖
+
+        </span>
+
+        <h2>👥 Jadwal Karyawan</h2>
+
+        <p class="jadwal-subtitle">
+            Atur jadwal libur tetap atau rotasi setiap karyawan.
+        </p>
+
+
+        <!-- PILIH KARYAWAN -->
+
+        <div class="form-jadwal">
+
+            <label>Karyawan</label>
+
+            <select id="pilihKaryawan">
+
+                <option value="">
+                    -- Pilih Karyawan --
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- TIPE JADWAL -->
+
+        <div class="form-jadwal">
+
+            <label>Jenis Jadwal</label>
+
+            <select id="tipeJadwal">
+
+                <option value="tetap">
+                    📌 Libur Tetap
+                </option>
+
+                <option value="rotasi">
+                    🔄 Libur Rotasi
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- LIBUR TETAP -->
+
+        <div
+            id="formTetap"
+            class="form-jadwal">
+
+            <label>
+                Hari Libur Tetap
+            </label>
+
+            <select id="hariTetap">
+
+                <option value="0">Minggu</option>
+                <option value="1">Senin</option>
+                <option value="2">Selasa</option>
+                <option value="3">Rabu</option>
+                <option value="4">Kamis</option>
+                <option value="5">Jumat</option>
+                <option value="6">Sabtu</option>
+
+            </select>
+
+        </div>
+
+
+        <!-- LIBUR ROTASI -->
+
+        <div
+            id="formRotasi"
+            style="display:none;">
+
+            <div class="rotasi-title">
+                🔄 Jadwal Libur Rotasi
+            </div>
+
+
+            <div class="rotasi-grid">
+
+                <div class="form-jadwal">
+
+                    <label>Minggu 1</label>
+
+                    <select id="rotasi1">
+                        <option value="0">Minggu</option>
+                        <option value="1">Senin</option>
+                        <option value="2">Selasa</option>
+                        <option value="3">Rabu</option>
+                        <option value="4">Kamis</option>
+                        <option value="5">Jumat</option>
+                        <option value="6">Sabtu</option>
+                    </select>
+
+                </div>
+
+
+                <div class="form-jadwal">
+
+                    <label>Minggu 2</label>
+
+                    <select id="rotasi2">
+                        <option value="0">Minggu</option>
+                        <option value="1">Senin</option>
+                        <option value="2">Selasa</option>
+                        <option value="3">Rabu</option>
+                        <option value="4">Kamis</option>
+                        <option value="5">Jumat</option>
+                        <option value="6">Sabtu</option>
+                    </select>
+
+                </div>
+
+
+                <div class="form-jadwal">
+
+                    <label>Minggu 3</label>
+
+                    <select id="rotasi3">
+                        <option value="0">Minggu</option>
+                        <option value="1">Senin</option>
+                        <option value="2">Selasa</option>
+                        <option value="3">Rabu</option>
+                        <option value="4">Kamis</option>
+                        <option value="5">Jumat</option>
+                        <option value="6">Sabtu</option>
+                    </select>
+
+                </div>
+
+
+                <div class="form-jadwal">
+
+                    <label>Minggu 4</label>
+
+                    <select id="rotasi4">
+                        <option value="0">Minggu</option>
+                        <option value="1">Senin</option>
+                        <option value="2">Selasa</option>
+                        <option value="3">Rabu</option>
+                        <option value="4">Kamis</option>
+                        <option value="5">Jumat</option>
+                        <option value="6">Sabtu</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="btn-simpan-jadwal"
+            onclick="simpanJadwalKaryawan()">
+
+            💾 Simpan Jadwal
+
+        </button>
+
+
+        <hr>
+
+
+        <h3>📋 Jadwal Saat Ini</h3>
+
+        <div id="daftarJadwalKaryawan">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =============================
+     DATA ABSENSI
+============================= -->
+
+<div class="table-card data-absensi-card">
+
+    <!-- HEADER -->
+    <div class="section-header">
+
+        <div class="section-title">
+            <h2>📋 Data Absensi</h2>
+        </div>
+
+        <div class="section-actions">
+
+            <div class="search-mini">
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="searchAbsensi"
+                    placeholder="Cari karyawan..."
+                    onkeyup="filterAbsensi()"
+                >
+            </div>
+
+            <button
+                class="btn-export"
+                type="button"
+                onclick="exportAbsensiExcel()">
+
+                <i class="fa-solid fa-file-excel"></i>
+                Export Excel
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- FILTER TANGGAL -->
+    <div class="filter-absensi">
+
+        <div class="filter-group">
+
+            <label for="filterMulai">
+                Dari Tanggal
+            </label>
+
+            <input
+                type="date"
+                id="filterMulai">
+
+        </div>
+
+
+        <div class="filter-group">
+
+            <label for="filterSelesai">
+                Sampai Tanggal
+            </label>
+
+            <input
+                type="date"
+                id="filterSelesai">
+
+        </div>
+
+
+        <button
+            id="btnFilter"
+            class="btn-filter"
+            type="button">
+
+            <i class="fa-solid fa-filter"></i>
+            Tampilkan
+
+        </button>
+
+
+        <button
+            id="btnResetFilter"
+            class="btn-reset"
+            type="button">
+
+            Reset
+
+        </button>
+
+    </div>
+
+
+    <!-- RINGKASAN ABSENSI -->
+    <div class="absensi-summary">
+
+        <!-- TOTAL -->
+        <div class="summary-box">
+
+            <div class="summary-icon total">
+                <i class="fa-solid fa-users"></i>
+            </div>
+
+            <div>
+                <span>Total</span>
+                <strong id="totalAbsensi">0</strong>
+            </div>
+
+        </div>
+
+
+        <!-- HADIR -->
+        <div class="summary-box">
+
+            <div class="summary-icon hadir">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+
+            <div>
+                <span>Hadir</span>
+                <strong id="totalHadir">0</strong>
+            </div>
+
+        </div>
+
+
+        <!-- TERLAMBAT -->
+        <div class="summary-box">
+
+            <div class="summary-icon terlambat">
+                <i class="fa-solid fa-clock"></i>
+            </div>
+
+            <div>
+                <span>Terlambat</span>
+                <strong id="totalTerlambat">0</strong>
+            </div>
+
+        </div>
+
+
+        <!-- ALPHA -->
+        <div class="summary-box">
+
+            <div class="summary-icon alpha">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </div>
+
+            <div>
+                <span>Alpha</span>
+                <strong id="totalAlpha">0</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TABEL ABSENSI -->
+    <div class="table-wrapper">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Nama</th>
+                    <th>Masuk</th>
+                    <th>Pulang</th>
+                    <th>Kota</th>
+                    <th>Status</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="dataAbsensi">
+
+                <!-- Data absensi dari JavaScript -->
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<!-- =============================
+     PENGAJUAN IZIN & CUTI
+============================= -->
+
+<div class="pengajuan-header">
+
+    <h2>📋 Pengajuan Izin & Cuti</h2>
+
+</div>
+
+<div class="data-pengajuan">
+
+    <!-- DATA CUTI / IZIN -->
+    <div id="dataCuti"></div>
+
+</div>
+
+<div class="modal" id="modalHadir">
+
+    <div class="modal-content">
+
+        <h2>✅ Hadir Hari Ini</h2>
+
+        <div id="listHadir"></div>
+
+        <button onclick="tutupModalHadir()">
+            Tutup
+        </button>
+
+    </div>
+
+</div>
+
+<!-- MODAL BELUM ABSEN / ALPHA -->
+
+<div class="modal" id="modalAlpha">
+
+    <div class="modal-content">
+
+        <h2>
+            ❌ Belum Absen Hari Ini
+        </h2>
+
+        <div id="belumAbsen"></div>
+
+        <button onclick="tutupModalAlpha()">
+            Tutup
+        </button>
+
+    </div>
+
+</div>
+
+<!-- MODAL ALASAN PENOLAKAN -->
+
+<div class="modal" id="modalTolak">
+
+    <div class="modal-content modal-tolak">
+
+        <span
+        class="close"
+        onclick="tutupModalTolak()">
+
+            ✖
+
+        </span>
+
+        <h2>❌ Tolak Pengajuan</h2>
+
+        <p>
+            Silakan berikan alasan mengapa pengajuan ini ditolak.
+        </p>
+
+        <textarea
+            id="alasanPenolakan"
+            placeholder="Contoh: Jadwal kerja sedang padat, silakan ajukan di tanggal lain..."
+            rows="5">
+        </textarea>
+
+        <div class="aksi-modal">
+
+            <button
+            class="btn-batal"
+            onclick="tutupModalTolak()">
+
+                Batal
+
+            </button>
+
+            <button
+            class="btn-tolak"
+            onclick="konfirmasiTolak()">
+
+                ❌ Tolak Pengajuan
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- MODAL SURAT -->
+<div class="modal" id="modalSurat">
+
+    <div class="modal-content">
+
+        <span
+        class="close"
+        onclick="tutupSurat()">
+
+            ✖
+
+        </span>
+
+        <img id="imgSurat">
+
+    </div>
+
+</div>
+
+
+<!-- =============================
+     MODAL KALENDER KERJA
+============================= -->
+
+<div id="modalKalender">
+
+    <div class="modal-content kalender-modal">
+
+<span
+    class="close"
+    onclick="tutupKalender()">
+
+    ✖
+
+</span>
+
+        <div class="kalender-header">
+
+            <div>
+
+                <h2>📅 Kalender Kerja</h2>
+
+                <p>
+                    Atur tanggal kerja dan hari libur AZNET.
+                </p>
+
+            </div>
+
+            <input
+                type="month"
+                id="bulanKalender">
+
+        </div>
+
+        <div class="kalender-info">
+
+            💡 Klik tanggal untuk mengubah
+            <b>KERJA</b> menjadi
+            <b>LIBUR</b>.
+
+        </div>
+
+        <div
+            id="calendarGrid"
+            class="calendar-grid">
+        </div>
+
+        <div class="kalender-footer">
+
+            <span>🟢 Hari Kerja</span>
+
+            <span>🔴 Hari Libur</span>
+
+            <button
+                type="button"
+                class="btn-simpan-kalender"
+                onclick="tutupKalender()">
+
+                ✓ Selesai
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
+
+<script src="js/admin.js"></script>
+
+</body>
+
+</html>
+

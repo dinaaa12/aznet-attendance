@@ -1,0 +1,933 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+
+/* =========================================================
+   LOGIN PAGE
+   HANYA BERLAKU UNTUK HALAMAN LOGIN
+========================================================= */
+
+body:not(.admin-page){
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563EB,
+            #4F46E5,
+            #7C3AED
+        );
+
+    overflow:hidden;
+}
+
+
+/* Background Blur Login */
+
+body:not(.admin-page)::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+    height:450px;
+
+    background:#60A5FA;
+
+    border-radius:50%;
+
+    top:-120px;
+    left:-120px;
+
+    filter:blur(120px);
+
+    opacity:.35;
+}
+
+
+body:not(.admin-page)::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    background:#8B5CF6;
+
+    border-radius:50%;
+
+    bottom:-100px;
+    right:-100px;
+
+    filter:blur(120px);
+
+    opacity:.35;
+}
+
+
+/* =========================================================
+   LOGIN BOX
+========================================================= */
+
+.login-box{
+
+    position:relative;
+
+    z-index:1;
+
+    width:420px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:30px;
+
+    padding:40px;
+
+    color:white;
+
+    box-shadow:
+        0 25px 45px rgba(0,0,0,.25);
+}
+
+
+/* =========================================================
+   LOGO LOGIN
+========================================================= */
+
+.logo{
+
+    width:90px;
+    height:90px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    font-size:42px;
+
+    color:#2563EB;
+}
+
+
+/* =========================================================
+   H1 LOGIN
+========================================================= */
+
+body:not(.admin-page) h1{
+
+    text-align:center;
+
+    margin-top:20px;
+
+    font-size:34px;
+
+    font-weight:bold;
+}
+
+
+/* =========================================================
+   SUBTITLE LOGIN
+========================================================= */
+
+.subtitle{
+
+    text-align:center;
+
+    margin-top:10px;
+
+    margin-bottom:35px;
+
+    color:#E5E7EB;
+}
+
+
+/* =========================================================
+   INPUT LOGIN
+========================================================= */
+
+.input-box{
+
+    position:relative;
+
+    margin-bottom:20px;
+}
+
+
+.input-box i:first-child{
+
+    position:absolute;
+
+    left:18px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#6B7280;
+
+    font-size:18px;
+}
+
+
+.input-box input{
+
+    width:100%;
+
+    height:55px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:15px;
+
+    padding-left:50px;
+    padding-right:50px;
+
+    background:white;
+
+    font-size:16px;
+}
+
+
+/* =========================================================
+   PASSWORD
+========================================================= */
+
+#lihatPassword{
+
+    position:absolute;
+
+    right:18px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    cursor:pointer;
+
+    color:#6B7280;
+}
+
+
+/* =========================================================
+   OPSI LOGIN
+========================================================= */
+
+.opsi{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin:10px 0 25px;
+
+    font-size:14px;
+}
+
+
+.opsi label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+}
+
+
+.opsi a{
+
+    color:white;
+
+    text-decoration:none;
+}
+
+
+.opsi a:hover{
+
+    text-decoration:underline;
+}
+
+
+/* =========================================================
+   BUTTON LOGIN
+========================================================= */
+
+body:not(.admin-page) button{
+
+    width:100%;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563EB,
+            #4F46E5
+        );
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.35s;
+}
+
+
+body:not(.admin-page) button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(37,99,235,.45);
+}
+
+
+/* =========================================================
+   FOOTER LOGIN
+========================================================= */
+
+.footer{
+
+    text-align:center;
+
+    margin-top:25px;
+
+    font-size:13px;
+
+    color:#E5E7EB;
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+#logoutBtn{
+
+    width:100%;
+
+    padding:14px 20px;
+
+    font-size:16px;
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   LOGIN MOBILE
+========================================================= */
+
+@media(max-width:500px){
+
+    .login-box{
+
+        width:92%;
+
+        padding:30px;
+    }
+
+    body:not(.admin-page) h1{
+
+        font-size:28px;
+    }
+
+}
+
+
+/* =========================================================
+   =========================================================
+   ADMIN PAGE
+   =========================================================
+========================================================= */
+
+body.admin-page{
+
+    min-height:100vh;
+
+    display:block;
+
+    margin:0;
+    padding:0;
+
+    background:#f8fafc;
+
+    color:#1e293b;
+
+    overflow-x:hidden;
+
+    overflow-y:auto;
+}
+
+
+/* Matikan background login */
+
+body.admin-page::before,
+body.admin-page::after{
+
+    display:none !important;
+
+}
+
+
+/* =========================================================
+   ADMIN BUTTON
+========================================================= */
+
+body.admin-page button{
+
+    width:auto;
+
+    height:auto;
+
+    min-height:0;
+
+    border:none;
+
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   EXPORT EXCEL
+========================================================= */
+
+body.admin-page #exportExcel{
+
+    width:auto;
+
+    height:auto;
+
+    padding:14px 22px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+}
+
+
+/* =========================================================
+   EXPORT CUTI
+========================================================= */
+
+body.admin-page #exportCuti{
+
+    width:auto;
+
+    height:auto;
+
+    padding:12px 20px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+}
+
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+body.admin-page .filter-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+}
+
+
+body.admin-page .filter-group input{
+
+    width:100%;
+
+    height:42px;
+
+    padding:8px 12px;
+
+    border:1px solid #cbd5e1;
+
+    border-radius:10px;
+
+    background:white;
+
+    color:#1e293b;
+
+    outline:none;
+}
+
+
+body.admin-page .filter-group input:focus{
+
+    border-color:#2563eb;
+}
+
+
+/* =========================================================
+   MODAL KALENDER
+========================================================= */
+
+body.admin-page #modalKalender{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:99999;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(15,23,42,.60);
+
+    backdrop-filter:blur(5px);
+}
+
+
+body.admin-page #modalKalender.show{
+
+    display:flex;
+}
+
+
+/* =========================================================
+   ISI MODAL KALENDER
+========================================================= */
+
+body.admin-page #modalKalender .modal-content{
+
+    width:780px;
+
+    max-width:calc(100vw - 40px);
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    position:relative;
+
+    background:white;
+
+    border-radius:24px;
+
+    padding:30px;
+
+    color:#1e293b;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.25);
+}
+
+
+/* =========================================================
+   JUDUL KALENDER
+========================================================= */
+
+body.admin-page #modalKalender .modal-content h2{
+
+    margin:0 0 5px;
+
+    color:#111827;
+
+    font-size:25px;
+}
+
+
+body.admin-page #modalKalender .modal-content p{
+
+    color:#64748b;
+
+    font-size:14px;
+}
+
+
+/* =========================================================
+   TOMBOL CLOSE KALENDER
+========================================================= */
+
+body.admin-page #modalKalender .close{
+
+    position:absolute;
+
+    top:15px;
+    right:18px;
+
+    width:38px;
+    height:38px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#f1f5f9;
+
+    color:#64748b;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    z-index:10;
+}
+
+
+body.admin-page #modalKalender .close:hover{
+
+    background:#fee2e2;
+
+    color:#ef4444;
+}
+
+
+/* =========================================================
+   INPUT BULAN
+========================================================= */
+
+body.admin-page #bulanKalender{
+
+    width:150px;
+
+    height:42px;
+
+    padding:0 12px;
+
+    border:1px solid #cbd5e1;
+
+    border-radius:10px;
+
+    background:white;
+
+    color:#1e293b;
+
+    outline:none;
+}
+
+
+body.admin-page #bulanKalender:focus{
+
+    border-color:#2563eb;
+}
+
+
+/* =========================================================
+   GRID KALENDER
+========================================================= */
+
+body.admin-page #calendarGrid{
+
+    display:grid !important;
+
+    grid-template-columns:
+        repeat(7,minmax(0,1fr)) !important;
+
+    gap:10px !important;
+
+    width:100% !important;
+
+    margin-top:20px !important;
+}
+
+
+/* =========================================================
+   NAMA HARI
+========================================================= */
+
+body.admin-page #calendarGrid .calendar-day-name{
+
+    min-width:0;
+
+    height:35px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:0;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    color:#475569;
+}
+
+
+/* =========================================================
+   KOTAK TANGGAL
+========================================================= */
+
+body.admin-page #calendarGrid .calendar-date{
+
+    width:100%;
+
+    min-width:0;
+
+    height:78px;
+
+    min-height:78px;
+
+    padding:10px 5px;
+
+    margin:0;
+
+    border-radius:14px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    box-sizing:border-box;
+
+    position:relative;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+
+/* =========================================================
+   HARI KERJA
+========================================================= */
+
+body.admin-page #calendarGrid .calendar-date.kerja{
+
+    background:#f0fdf4 !important;
+
+    border:1px solid #86efac !important;
+
+    color:#166534 !important;
+}
+
+
+/* =========================================================
+   HARI LIBUR
+========================================================= */
+
+body.admin-page #calendarGrid .calendar-date.libur{
+
+    background:#fef2f2 !important;
+
+    border:1px solid #fca5a5 !important;
+
+    color:#b91c1c !important;
+}
+
+
+/* =========================================================
+   NOMOR
+========================================================= */
+
+body.admin-page #calendarGrid .calendar-date .nomor{
+
+    display:block;
+
+    margin:0;
+
+    padding:0;
+
+    font-size:17px;
+
+    line-height:1;
+
+    font-weight:700;
+}
+
+
+/* =========================================================
+   STATUS HARI
+========================================================= */
+
+body.admin-page #calendarGrid .calendar-date .status-hari{
+
+    display:block;
+
+    margin-top:8px;
+
+    padding:0;
+
+    font-size:11px;
+
+    line-height:1;
+
+    font-weight:600;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+body.admin-page #calendarGrid .calendar-date:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 6px 15px rgba(0,0,0,.08);
+}
+
+
+/* =========================================================
+   TOMBOL KALENDER
+========================================================= */
+
+body.admin-page .btn-simpan-kalender{
+
+    width:auto;
+
+    height:auto;
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5
+        );
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   MOBILE ADMIN
+========================================================= */
+
+@media(max-width:768px){
+
+    body.admin-page{
+
+        overflow-x:hidden;
+    }
+
+    body.admin-page #modalKalender{
+
+        padding:10px;
+    }
+
+    body.admin-page #modalKalender .modal-content{
+
+        width:100%;
+
+        max-width:100%;
+
+        padding:20px;
+
+        border-radius:20px;
+    }
+
+    body.admin-page #calendarGrid{
+
+        gap:5px !important;
+    }
+
+    body.admin-page #calendarGrid .calendar-date{
+
+        height:60px;
+
+        min-height:60px;
+
+        padding:6px 2px;
+    }
+
+    body.admin-page #calendarGrid .calendar-date .nomor{
+
+        font-size:14px;
+    }
+
+    body.admin-page #calendarGrid .calendar-date .status-hari{
+
+        font-size:9px;
+
+        margin-top:6px;
+    }
+
+}

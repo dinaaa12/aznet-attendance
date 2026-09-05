@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Rekap Bulanan - AZNET</title>
+
+<script src="js/auth.js"></script>
+
+<link rel="stylesheet"
+href="css/rekap.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+
+    <div class="hero">
+
+        <div class="hero-left">
+
+            <div class="hero-icon">
+
+                <i class="fa-solid fa-chart-column"></i>
+
+            </div>
+
+            <div>
+
+                <h1>Rekap Bulanan</h1>
+
+                <p>
+                    Rekapitulasi kehadiran karyawan secara otomatis.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <a
+        href="dashboard.html"
+        class="back">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Dashboard
+
+        </a>
+
+    </div>
+
+
+    <!-- FILTER -->
+
+    <div class="filter-card">
+
+        <div class="filter-title">
+
+            <h2>
+                📅 Periode Rekap
+            </h2>
+
+            <p>
+                Pilih bulan untuk melihat rekap kehadiran.
+            </p>
+
+        </div>
+
+
+        <div class="filter-form">
+
+            <div class="input-group">
+
+                <label>
+                    Bulan
+                </label>
+
+                <input
+                type="month"
+                id="bulan">
+
+            </div>
+
+
+            <button
+            id="btnTampilkan">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                Tampilkan Rekap
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- SUMMARY -->
+
+    <div class="summary-grid">
+
+        <div class="summary-card">
+
+            <div class="summary-icon">
+                👥
+            </div>
+
+            <div>
+
+                <small>
+                    Total Karyawan
+                </small>
+
+                <strong id="totalKaryawan">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-icon">
+                ✅
+            </div>
+
+            <div>
+
+                <small>
+                    Total Hadir
+                </small>
+
+                <strong id="totalHadir">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-icon">
+                🟡
+            </div>
+
+            <div>
+
+                <small>
+                    Total Izin
+                </small>
+
+                <strong id="totalIzin">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-icon">
+                ❌
+            </div>
+
+            <div>
+
+                <small>
+                    Total Alpha
+                </small>
+
+                <strong id="totalAlpha">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PERSENTASE -->
+
+    <div class="progress-card">
+
+        <div>
+
+            <h2>
+                📈 Persentase Kehadiran
+            </h2>
+
+            <p id="persentaseText">
+                0% Kehadiran
+            </p>
+
+        </div>
+
+        <div class="progress">
+
+            <div
+            id="progressBar"
+            class="progress-fill">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TABEL -->
+
+    <div class="table-card">
+
+        <div class="table-header">
+
+            <div>
+
+                <h2>
+                    📊 Rekap Kehadiran
+                </h2>
+
+                <p id="periodeText">
+                    Belum memilih periode
+                </p>
+
+            </div>
+
+
+            <button
+            id="exportRekap"
+            class="btn-export">
+
+                <i class="fa-solid fa-file-excel"></i>
+
+                Export Excel
+
+            </button>
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            No
+                        </th>
+
+                        <th>
+                            Nama
+                        </th>
+
+                        <th>
+                            Jabatan
+                        </th>
+
+                        <th>
+                            Hadir
+                        </th>
+
+                        <th>
+                            Izin
+                        </th>
+
+                        <th>
+                            Alpha
+                        </th>
+
+                        <th>
+                            Persentase
+                        </th>
+
+                         <th>
+                            Aksi
+                        </th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody
+                id="dataRekap">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- ============================= -->
+<!-- MODAL DETAIL -->
+<!-- ============================= -->
+
+<div id="modalDetailKehadiran" class="modal-detail">
+
+    <div class="modal-detail-box">
+
+        <div class="modal-detail-header">
+
+            <div>
+                <h2 id="detailNama">
+                    Detail Kehadiran
+                </h2>
+
+                <p id="detailJabatan">
+                    -
+                </p>
+            </div>
+
+            <button
+                class="btn-close-detail"
+                onclick="tutupDetailKehadiran()"
+                type="button">
+
+                ✕
+
+            </button>
+
+        </div>
+
+
+        <!-- RINGKASAN -->
+
+        <div class="detail-summary">
+
+            <div class="summary-card hadir">
+
+                <span>🟢</span>
+
+                <div>
+                    <small>Hadir</small>
+                    <strong id="detailHadir">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="summary-card izin">
+
+                <span>🟡</span>
+
+                <div>
+                    <small>Izin</small>
+                    <strong id="detailIzin">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="summary-card alpha">
+
+                <span>🔴</span>
+
+                <div>
+                    <small>Alpha</small>
+                    <strong id="detailAlpha">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="summary-card libur">
+
+                <span>⚪</span>
+
+                <div>
+                    <small>Libur</small>
+                    <strong id="detailLibur">0</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LIST DETAIL -->
+
+        <div class="detail-list-wrapper">
+
+            <div
+                id="detailList"
+                class="detail-list">
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<!-- SHEETJS -->
+
+<script
+src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js">
+</script>
+
+
+<script src="js/rekap.js"></script>
+
+</body>
+
+</html>

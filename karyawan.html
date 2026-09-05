@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Data Karyawan</title>
+
+<script src="js/auth.js"></script>
+
+<link rel="stylesheet"
+href="css/karyawan.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="hero">
+
+        <div class="hero-left">
+
+            <div class="hero-icon">
+                <i class="fa-solid fa-users"></i>
+            </div>
+
+            <div>
+
+                <h1>Data Karyawan</h1>
+
+                <p>
+                    Kelola informasi seluruh karyawan dengan mudah dan terorganisir.
+                </p>
+
+            </div>
+
+        </div>
+
+        <a href="dashboard.html" class="back">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Dashboard
+
+        </a>
+
+    </div>
+
+<div class="top-box">
+
+    <button id="tambah">
+
+        <i class="fa-solid fa-plus"></i>
+
+        Tambah Karyawan
+
+    </button>
+
+    <div class="summary">
+
+        <div class="box">
+
+            <i class="fa-solid fa-users"></i>
+
+            <div>
+
+                <small>Total Karyawan</small>
+
+                <h2 id="totalKaryawan">0</h2>
+
+            </div>
+
+        </div>
+
+        <div class="box">
+
+            <i class="fa-solid fa-user-check"></i>
+
+            <div>
+
+                <small>Staff Aktif</small>
+
+                <h2 id="totalAktif">0</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="search-box">
+
+    <i class="fa-solid fa-magnifying-glass"></i>
+
+    <input
+        type="text"
+        id="search"
+        placeholder="Cari nama, username, jabatan...">
+
+</div>
+
+<div id="listKaryawan"></div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+
+    <div class="modal-content">
+
+        <h2>👤 Tambah Karyawan</h2>
+
+        <input type="text" id="nama" placeholder="Nama Lengkap">
+
+        <input type="text" id="username" placeholder="Username">
+
+        <div class="password-box">
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Password">
+
+    <button
+        type="button"
+        id="togglePassword"
+        class="toggle-password">
+
+        <i class="fa-regular fa-eye"></i>
+
+    </button>
+
+</div>
+
+        <input type="text" id="jabatan" placeholder="Jabatan">
+
+        <input type="text" id="divisi" placeholder="Divisi">
+
+        <select id="role">
+            <option value="staff">Staff</option>
+            <option value="admin">Admin</option>
+        </select>
+
+        <div class="aksi">
+
+            <button onclick="tutupModal()">
+                Batal
+            </button>
+
+            <button id="simpan" onclick="simpanKaryawan()">
+                Simpan
+            </button>
+
+        </div>
+
+    </div>
+    
+</div>    
+
+<div class="modal" id="modalDetail">
+
+<div class="modal-content detail-modal">
+
+    <span
+    class="close"
+    onclick="tutupDetail()">
+
+        ✖
+
+    </span>
+
+    <div class="detail-header">
+
+        <img
+        id="detailFoto"
+        src="img/user.png">
+
+        <h2 id="detailNama">
+
+            Nama
+
+        </h2>
+
+        <p id="detailJabatan">
+
+            Jabatan
+
+        </p>
+
+    </div>
+
+    <div class="detail-grid">
+
+        <div>
+
+            <b>Username</b>
+
+            <p id="detailUsername"></p>
+
+        </div>
+
+        <div>
+
+            <b>Divisi</b>
+
+            <p id="detailDivisi"></p>
+
+        </div>
+
+        <div>
+
+            <b>Role</b>
+
+            <p id="detailRole"></p>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <h3>📊 Statistik</h3>
+
+    <div class="statistik">
+
+        <div>
+
+            ✅
+
+            <span id="detailHadir">
+
+            0
+
+            </span>
+
+        </div>
+
+        <div>
+
+            🟡
+
+            <span id="detailIzin">
+
+            0
+
+            </span>
+
+        </div>
+
+        <div>
+
+            ❌
+
+            <span id="detailAlpha">
+
+            0
+
+            </span>
+
+        </div>
+
+    </div>
+<hr>
+
+<h3>🕘 Riwayat Absensi</h3>
+
+<div id="detailRiwayatAbsensi">
+
+    <p class="empty-history">
+        Belum ada riwayat absensi.
+    </p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="js/karyawan.js"></script>
+
+</body>
+</html>

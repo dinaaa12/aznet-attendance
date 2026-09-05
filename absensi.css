@@ -1,0 +1,609 @@
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+
+    padding:30px;
+
+}
+
+/* ==========================
+   CONTAINER
+========================== */
+
+.container{
+
+    max-width:1000px;
+
+    margin:auto;
+
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:white;
+
+    margin-bottom:25px;
+
+}
+
+.header h1{
+
+    font-size:34px;
+
+}
+
+.back{
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(10px);
+
+    transition:.3s;
+
+}
+
+.back:hover{
+
+    background:white;
+
+    color:#2563EB;
+
+}
+
+/* ==========================
+   CARD
+========================== */
+
+.card{
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    color:white;
+
+    margin-bottom:25px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+
+}
+
+.card h2{
+
+    margin-bottom:20px;
+
+}
+
+.card h3{
+
+    font-size:40px;
+
+    margin-top:10px;
+
+}
+
+/* ==========================
+   BUTTON
+========================== */
+
+button{
+
+    border:none;
+
+    padding:15px 25px;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/* GPS */
+
+#gpsBtn{
+
+    background:#2563EB;
+
+    color:white;
+
+}
+
+/* Kamera */
+
+#kameraBtn{
+
+    background:#7C3AED;
+
+    color:white;
+
+    margin-top:15px;
+
+}
+
+#ambilFoto{
+
+    display:none;
+
+    background:#10B981;
+
+    color:white;
+
+    margin-top:15px;
+
+}
+
+/* ==========================
+   MENU ABSEN
+========================== */
+
+.menu{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+#btnMasuk{
+
+    background:#10B981;
+
+    color:white;
+
+    font-size:20px;
+
+}
+
+#btnPulang{
+
+    background:#EF4444;
+
+    color:white;
+
+    font-size:20px;
+
+}
+
+/* ==========================
+   VIDEO
+========================== */
+
+video{
+
+    width:100%;
+
+    border-radius:20px;
+
+    display:none;
+
+    margin-top:20px;
+
+}
+
+#hasilFoto{
+
+    width:100%;
+
+    display:none;
+
+    margin-top:20px;
+
+    border-radius:20px;
+
+}
+
+canvas{
+
+    display:none;
+
+}
+
+/* ==========================
+   TOAST
+========================== */
+
+#toast{
+
+    position:fixed;
+
+    right:30px;
+
+    top:30px;
+
+    padding:18px 25px;
+
+    border-radius:18px;
+
+    color:white;
+
+    font-weight:bold;
+
+    transform:translateX(400px);
+
+    transition:.35s;
+
+    z-index:9999;
+
+}
+
+#toast.show{
+
+    transform:translateX(0);
+
+}
+
+.success{
+
+    background:#10B981;
+
+}
+
+.error{
+
+    background:#EF4444;
+
+}
+
+.info{
+
+    background:#2563EB;
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:768px){
+
+.menu{
+
+grid-template-columns:1fr;
+
+}
+
+.header{
+
+flex-direction:column;
+
+gap:20px;
+
+align-items:flex-start;
+
+}
+
+}
+/* ==================================
+   STEP ABSENSI
+================================== */
+
+.step-box{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+margin:35px 0;
+
+gap:15px;
+
+}
+
+.step{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+color:#9CA3AF;
+
+transition:.3s;
+
+}
+
+.circle{
+
+width:55px;
+
+height:55px;
+
+border-radius:50%;
+
+background:#374151;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:22px;
+
+font-weight:bold;
+
+color:white;
+
+transition:.3s;
+
+}
+
+.line{
+
+width:80px;
+
+height:4px;
+
+background:#374151;
+
+border-radius:10px;
+
+}
+
+.step.active{
+
+color:white;
+
+}
+
+.step.active .circle{
+
+background:#2563EB;
+
+box-shadow:0 0 20px rgba(37,99,235,.5);
+
+}
+
+.step.done .circle{
+
+background:#10B981;
+
+}
+
+.step.done{
+
+color:#10B981;
+
+}
+/* ===========================
+   LOKASI
+=========================== */
+
+.lokasi-box{
+
+margin:25px 0;
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.lokasi-item{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:15px 20px;
+
+background:rgba(255,255,255,.08);
+
+border-radius:15px;
+
+color:white;
+
+}
+
+.lokasi-item span{
+
+opacity:.8;
+
+}
+
+.lokasi-item strong{
+
+font-size:16px;
+
+}
+
+.btn-biru{
+
+margin-top:20px;
+
+padding:14px 25px;
+
+border:none;
+
+border-radius:15px;
+
+cursor:pointer;
+
+font-size:16px;
+
+font-weight:bold;
+
+color:white;
+
+background:linear-gradient(135deg,#2563EB,#3B82F6);
+
+transition:.3s;
+
+}
+
+.btn-biru:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 15px 30px rgba(37,99,235,.3);
+
+}
+/* ==========================
+   SELFIE
+========================== */
+
+.selfie-area{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+margin:25px 0;
+
+}
+
+#video,
+#hasilFoto{
+
+width:320px;
+
+height:240px;
+
+border-radius:20px;
+
+object-fit:cover;
+
+display:none;
+
+background:#111827;
+
+box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+}
+
+#canvas{
+
+display:none;
+
+}
+
+.selfie-button{
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+margin-top:20px;
+
+flex-wrap:wrap;
+
+}
+
+.btn-ungu{
+
+padding:15px 28px;
+
+border:none;
+
+border-radius:15px;
+
+background:linear-gradient(135deg,#7C3AED,#9333EA);
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.btn-hijau{
+
+padding:15px 28px;
+
+border:none;
+
+border-radius:15px;
+
+background:linear-gradient(135deg,#10B981,#059669);
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+display:none;
+
+transition:.3s;
+
+}
+
+.btn-ungu:hover,
+.btn-hijau:hover{
+
+transform:translateY(-5px);
+
+}
+
+#statusSelfie{
+
+text-align:center;
+
+margin-top:15px;
+
+font-size:16px;
+
+color:white;
+
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profil Saya</title>
+
+    <link rel="stylesheet" href="css/profil.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="topbar">
+
+        <h1>
+            <i class="fa-solid fa-user"></i>
+            Profil Saya
+        </h1>
+
+        <a href="dashboard.html" class="back">
+            <i class="fa-solid fa-arrow-left"></i>
+            Dashboard
+        </a>
+
+    </div>
+
+    <div class="profile-card">
+
+        <img
+        id="previewFoto"
+        src="img/default-user.png">
+
+        <label for="foto" class="upload-btn">
+            <i class="fa-solid fa-camera"></i>
+            Ganti Foto
+        </label>
+
+        <input
+        type="file"
+        id="foto"
+        accept="image/*"
+        hidden>
+
+        <h2 id="namaPreview">Nama Lengkap</h2>
+
+        <p id="jabatanPreview">
+            Jabatan
+        </p>
+
+        <span class="status">
+            🟢 Aktif
+        </span>
+
+    </div>
+
+    <div class="form-card">
+
+        <label>👤 Nama Lengkap</label>
+        <input id="nama">
+
+        <label>💼 Jabatan</label>
+        <input id="jabatan">
+
+        <label>🏢 Divisi</label>
+        <input id="divisi">
+
+        <label>📧 Email</label>
+        <input id="email">
+
+        <label>📱 No HP</label>
+        <input id="hp">
+
+        <label>📍 Alamat</label>
+        <input id="alamat">
+
+        <button id="simpan">
+            💾 Simpan Perubahan
+        </button>
+
+    </div>
+
+</div>
+
+<script src="js/profil.js"></script>
+
+</body>
+
+</html>

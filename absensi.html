@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Absensi - AZNET</title>
+
+<link rel="stylesheet" href="css/absensi.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+
+        <h1>📍 Absensi Karyawan</h1>
+
+        <a href="dashboard.html" class="back">
+            <i class="fa fa-arrow-left"></i>
+            Dashboard
+        </a>
+
+    </div>
+
+    <!-- STEP -->
+    <div class="step-box">
+
+        <div class="step active" id="stepLokasi">
+            <div class="circle">1</div>
+            <span>Lokasi</span>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="step" id="stepSelfie">
+            <div class="circle">2</div>
+            <span>Selfie</span>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="step" id="stepAbsen">
+            <div class="circle">3</div>
+            <span>Absen</span>
+        </div>
+
+    </div>
+
+    <!-- WAKTU -->
+    <div class="card">
+
+        <h2>📅 Hari Ini</h2>
+
+        <p id="tanggal"></p>
+
+        <h3 id="jam">00:00:00</h3>
+
+    </div>
+
+    <!-- LOKASI -->
+    <div class="card">
+
+        <h2>📍 Lokasi</h2>
+
+        <div class="lokasi-box">
+
+            <div class="lokasi-item">
+                <span>Status GPS</span>
+                <strong id="gpsStatus">🔴 Belum Valid</strong>
+            </div>
+
+            <div class="lokasi-item">
+                <span>Latitude</span>
+                <strong id="latitude">-</strong>
+            </div>
+
+            <div class="lokasi-item">
+                <span>Longitude</span>
+                <strong id="longitude">-</strong>
+            </div>
+
+            <div class="lokasi-item">
+                <span>Kota</span>
+                <strong id="namaKota">Belum diketahui</strong>
+            </div>
+
+        </div>
+
+        <button id="gpsBtn" class="btn-biru">
+
+            <i class="fa-solid fa-location-crosshairs"></i>
+
+            Ambil Lokasi
+
+        </button>
+
+    </div>
+
+    <!-- SELFIE -->
+    <div class="card">
+
+        <h2>📸 Selfie Verifikasi</h2>
+
+        <div class="selfie-area">
+
+            <video
+                id="video"
+                autoplay
+                playsinline>
+            </video>
+
+            <img
+                id="hasilFoto"
+                src=""
+                alt="Selfie">
+
+            <canvas id="canvas"></canvas>
+
+        </div>
+
+        <p id="statusSelfie">
+
+            Belum mengambil selfie
+
+        </p>
+
+        <div class="selfie-button">
+
+            <button id="bukaKamera" class="btn-ungu">
+
+                <i class="fa-solid fa-camera"></i>
+
+                Buka Kamera
+
+            </button>
+
+            <button id="ambilFoto" class="btn-hijau">
+
+                <i class="fa-solid fa-camera-retro"></i>
+
+                Ambil Foto
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ABSEN -->
+    <div class="menu">
+
+        <button id="btnMasuk">
+
+            🟢 Absen Masuk
+
+        </button>
+
+        <button id="btnPulang">
+
+            🔴 Absen Pulang
+
+        </button>
+
+    </div>
+
+</div>
+
+<div id="toast"></div>
+
+<script src="js/absensi.js"></script>
+
+</body>
+</html>

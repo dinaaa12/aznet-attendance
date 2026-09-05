@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Izin & Cuti</title>
+
+<link rel="stylesheet" href="css/cuti.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<h1>
+📄 Izin & Cuti
+</h1>
+
+<a href="dashboard.html" class="back">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Dashboard
+
+</a>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+
+Ajukan Izin
+
+</h2>
+
+<div class="input-group">
+
+<label>Nama</label>
+
+<input
+type="text"
+id="nama"
+readonly>
+
+</div>
+
+
+<div class="input-group">
+
+<label>Jenis Pengajuan</label>
+
+<select id="jenis">
+
+<option>Izin</option>
+
+<option>Sakit</option>
+
+<option>Cuti</option>
+
+</select>
+
+</div>
+
+
+<div class="row">
+
+<div class="input-group">
+
+<label>Tanggal Mulai</label>
+
+<input
+type="date"
+id="mulai">
+
+</div>
+
+<div class="input-group">
+
+<label>Tanggal Selesai</label>
+
+<input
+type="date"
+id="selesai">
+
+</div>
+
+</div>
+
+
+<div class="input-group">
+
+<label>Alasan</label>
+
+<textarea
+id="alasan"
+rows="5"
+placeholder="Tulis alasan..."></textarea>
+
+</div>
+
+
+<div class="input-group">
+
+<label>Upload Surat</label>
+
+<input
+type="file"
+id="surat"
+hidden>
+
+<label
+for="surat"
+class="upload-box">
+
+<i class="fa-solid fa-cloud-arrow-up"></i>
+
+Klik untuk Upload Surat
+
+<p>PDF, JPG, PNG (Max 5 MB)</p>
+
+</label>
+
+<div id="previewSurat"></div>
+
+<!-- PREVIEW FILE -->
+<div id="previewSurat"></div>
+
+</div>
+
+
+<button id="kirim">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+Kirim Pengajuan
+
+</button>
+
+</div>
+
+<div class="riwayat">
+
+    <h2>
+        Riwayat Pengajuan
+    </h2>
+
+    <div id="listRiwayat"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<div
+class="modal-preview"
+id="modalPreview">
+
+<div class="preview-content">
+
+<span
+onclick="tutupPreview()">
+
+✖
+
+</span>
+
+<img id="imgPreview">
+
+</div>
+
+</div>
+
+<script src="js/cuti.js"></script>
+
+</body>
+
+</html>

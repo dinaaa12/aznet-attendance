@@ -1,0 +1,4516 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+
+background:linear-gradient(135deg,#2563eb,#60a5fa);
+padding:35px;
+
+}
+
+.container{
+
+max-width:1200px;
+margin:auto;
+
+}
+
+.header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+
+}
+
+.header h1{
+
+color:white;
+font-size:36px;
+
+}
+
+.back{
+
+background:white;
+padding:12px 20px;
+border-radius:15px;
+text-decoration:none;
+font-weight:bold;
+color:#2563eb;
+transition:.3s;
+
+}
+
+.back:hover{
+
+transform:translateY(-3px);
+
+}
+
+.cards{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+margin-bottom:30px;
+
+}
+
+.card{
+
+background:white;
+padding:30px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 15px 35px rgba(0,0,0,.12);
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.card i{
+
+font-size:45px;
+margin-bottom:15px;
+color:#2563eb;
+
+}
+
+.card h2{
+
+font-size:38px;
+margin-bottom:10px;
+
+}
+
+.card p{
+
+color:#666;
+
+}
+
+.table-card{
+
+background:white;
+padding:30px;
+border-radius:25px;
+box-shadow:0 15px 35px rgba(0,0,0,.12);
+margin-bottom:30px;
+
+}
+
+.table-card h2{
+
+margin-bottom:20px;
+
+}
+
+table{
+
+width:100%;
+border-collapse:collapse;
+
+}
+
+th{
+
+background:#2563eb;
+color:white;
+padding:15px;
+
+}
+
+td{
+
+padding:15px;
+border-bottom:1px solid #eee;
+text-align:center;
+
+}
+
+tbody tr:not(.empty-row):hover {
+    background:#f8fafc;
+}
+
+.approve{
+
+background:#22c55e;
+color:white;
+padding:10px 15px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+margin-right:8px;
+
+}
+
+.reject{
+
+background:#ef4444;
+color:white;
+padding:10px 15px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+
+}
+
+.item{
+
+background:#f8fafc;
+padding:20px;
+border-radius:18px;
+margin-bottom:15px;
+
+}
+
+.item h3{
+
+margin-bottom:10px;
+
+}
+
+.status{
+
+display:inline-block;
+padding:8px 18px;
+border-radius:20px;
+font-weight:bold;
+margin:10px 0;
+
+}
+
+.pending{
+
+background:#fef3c7;
+color:#92400e;
+
+}
+
+.approved{
+
+background:#dcfce7;
+color:#166534;
+
+}
+
+.rejected{
+
+background:#fee2e2;
+color:#991b1b;
+
+}
+
+@media(max-width:900px){
+
+.cards{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:600px){
+
+.cards{
+
+grid-template-columns:1fr;
+
+}
+
+.header{
+
+flex-direction:column;
+gap:15px;
+
+}
+
+table{
+
+font-size:13px;
+
+}
+
+}
+.mini{
+
+display:inline-block;
+
+margin-top:15px;
+
+padding:6px 14px;
+
+background:#eef4ff;
+
+color:#2563eb;
+
+border-radius:20px;
+
+font-size:13px;
+
+font-weight:bold;
+
+}
+.mini{
+display:inline-block;
+margin-top:15px;
+padding:7px 15px;
+background:rgba(255,255,255,.2);
+border-radius:20px;
+font-size:13px;
+font-weight:600;
+}
+
+.card{
+color:white;
+}
+
+.card:nth-child(1){
+background:linear-gradient(135deg,#2563eb,#3b82f6);
+}
+
+.card:nth-child(2){
+background:linear-gradient(135deg,#22c55e,#4ade80);
+}
+
+.card:nth-child(3){
+background:linear-gradient(135deg,#f59e0b,#fbbf24);
+}
+
+.card:nth-child(4){
+background:linear-gradient(135deg,#ef4444,#f87171);
+}
+
+.card i{
+color:white;
+}
+.hero{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+background:white;
+
+padding:35px;
+
+border-radius:30px;
+
+margin-bottom:30px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+
+.hero h2{
+
+font-size:34px;
+
+margin-bottom:10px;
+
+}
+
+.hero p{
+
+color:#666;
+
+font-size:18px;
+
+}
+
+.live{
+
+margin-top:20px;
+
+display:inline-flex;
+
+align-items:center;
+
+gap:10px;
+
+padding:10px 18px;
+
+background:#dcfce7;
+
+border-radius:30px;
+
+font-weight:bold;
+
+color:#16a34a;
+
+}
+
+.dot{
+
+width:12px;
+
+height:12px;
+
+background:#22c55e;
+
+border-radius:50%;
+
+animation:pulse 1.5s infinite;
+
+}
+
+.clock{
+
+text-align:right;
+
+}
+
+.clock h1{
+
+font-size:45px;
+
+color:#2563eb;
+
+}
+
+.clock span{
+
+font-weight:bold;
+
+color:#777;
+
+}
+
+@keyframes pulse{
+
+0%{
+
+transform:scale(.8);
+
+opacity:.5;
+
+}
+
+50%{
+
+transform:scale(1.2);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:scale(.8);
+
+opacity:.5;
+
+}
+
+}
+.header-card{
+
+background:white;
+border-radius:30px;
+padding:35px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:35px;
+box-shadow:0 20px 40px rgba(0,0,0,.12);
+
+}
+
+.header-card h2{
+
+font-size:40px;
+margin-bottom:8px;
+
+}
+
+.header-card p{
+
+font-size:20px;
+color:#666;
+
+}
+
+.right{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:flex-end;
+
+gap:18px;
+
+}
+
+#jam{
+
+font-size:55px;
+color:#2563eb;
+font-weight:bold;
+
+}
+
+.online{
+
+display:inline-block;
+margin-top:20px;
+padding:10px 20px;
+background:#dcfce7;
+color:#16a34a;
+border-radius:30px;
+font-weight:bold;
+
+}
+.item-belum{
+
+    background:#fff;
+
+    padding:15px;
+
+    margin-bottom:12px;
+
+    border-left:5px solid #ef4444;
+
+    border-radius:12px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.5);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
+
+}
+
+.modal.show{
+
+    display:flex;
+
+}
+
+.modal-content{
+
+    width:420px;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+}
+
+.modal-content button{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#2563eb;
+
+    color:white;
+
+    margin-top:20px;
+
+    cursor:pointer;
+
+}
+.progress-box{
+
+margin-top:20px;
+
+}
+
+.progress{
+
+width:100%;
+
+height:22px;
+
+background:#e5e7eb;
+
+border-radius:30px;
+
+overflow:hidden;
+
+}
+
+.progress-fill{
+
+width:0%;
+
+height:100%;
+
+background:linear-gradient(90deg,#22c55e,#4ade80);
+
+transition:.5s;
+
+}
+
+#persenStatistik{
+
+margin-top:15px;
+
+font-size:22px;
+
+font-weight:bold;
+
+text-align:center;
+
+color:#2563eb;
+
+}
+.btn-export{
+
+    background:#22c55e;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    margin-bottom:20px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.btn-export:hover{
+
+    background:#16a34a;
+
+}
+.activity{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px;
+
+    border-bottom:1px solid #eee;
+
+}
+
+.activity:last-child{
+
+    border-bottom:none;
+
+}
+
+.activity-time{
+
+    color:#777;
+
+    width:80px;
+
+}
+
+.activity-user{
+
+    font-weight:bold;
+
+    flex:1;
+
+}
+
+.activity-status{
+
+    color:#2563eb;
+
+    font-weight:bold;
+
+}
+.summary-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+    margin-top:20px;
+
+}
+
+.summary-item{
+
+    background:#f8fafc;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+
+}
+
+.summary-item span{
+
+    color:#555;
+
+    font-size:15px;
+
+}
+
+.summary-item strong{
+
+    font-size:28px;
+
+    color:#2563eb;
+
+}
+
+.summary-item.full{
+
+    grid-column:1/3;
+
+}
+/* ===========================
+   NOTIFIKASI
+=========================== */
+
+.notif-box{
+
+    position:relative;
+
+}
+
+.notif-btn{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    position:relative;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+    transition:.3s;
+
+}
+
+.notif-btn:hover{
+
+    transform:scale(1.05);
+
+}
+
+.notif-btn i{
+
+    font-size:22px;
+
+    color:#2563eb;
+
+}
+
+#notifBadge {
+
+    position: absolute;
+
+    top: -7px;
+    right: -7px;
+
+    min-width: 20px;
+    height: 20px;
+
+    padding: 0 5px;
+
+    border-radius: 50%;
+
+    background: #ef4444;
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 2px solid white;
+
+}
+
+.notif-dropdown{
+
+    position:absolute;
+
+    top:60px;
+
+    right:0;
+
+    width:320px;
+
+    background:white;
+
+    border-radius:15px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+
+    padding:20px;
+
+    display:none;
+
+    z-index:999;
+
+}
+
+.notif-dropdown.show{
+
+    display:block;
+
+}
+
+.notif-dropdown h3{
+
+    margin-bottom:15px;
+
+}
+
+.notif-item{
+
+    padding:12px;
+
+    border-bottom:1px solid #eee;
+
+    font-size:14px;
+
+}
+
+.notif-item:last-child{
+
+    border-bottom:none;
+
+}
+.lihatSurat{
+
+margin-top:15px;
+
+background:#2563eb;
+
+color:white;
+
+border:none;
+
+padding:10px 20px;
+
+border-radius:10px;
+
+cursor:pointer;
+
+}
+
+#imgSurat{
+
+max-width:700px;
+
+width:100%;
+
+border-radius:15px;
+
+}
+
+.close{
+
+position:absolute;
+
+right:20px;
+
+top:20px;
+
+font-size:28px;
+
+cursor:pointer;
+
+}
+/* =============================
+   NOTIFIKASI
+============================= */
+
+.notif-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px 14px;
+
+    border-radius: 10px;
+
+    margin-bottom: 7px;
+
+    background: #f8fafc;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+.notif-item:hover {
+
+    background: #eff6ff;
+
+    transform: translateX(2px);
+
+}
+
+.notif-icon {
+
+    font-size: 18px;
+
+    flex-shrink: 0;
+
+}
+
+.notif-text {
+
+    flex: 1;
+
+    font-size: 13px;
+
+    color: #334155;
+
+    line-height: 1.4;
+
+}
+
+.notif-item i {
+
+    font-size: 11px;
+
+    color: #94a3b8;
+
+}
+
+.notif-empty {
+
+    padding: 20px;
+
+    text-align: center;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+}
+/* =============================
+   MODAL ALPHA / BELUM ABSEN
+============================= */
+
+#modalAlpha .modal-content {
+    width: 420px;
+    max-width: 90%;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    animation: modalAlphaIn 0.25s ease;
+}
+
+@keyframes modalAlphaIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* HEADER */
+
+#modalAlpha .modal-content h2 {
+
+    margin: 0 0 22px;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: #1f2937;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+/* LIST KARYAWAN */
+
+#belumAbsen {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    max-height: 350px;
+
+    overflow-y: auto;
+
+    padding-right: 4px;
+
+}
+
+
+/* ITEM */
+
+#modalAlpha .item-belum {
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 15px;
+
+    padding: 14px 16px;
+
+    transition: 0.2s;
+
+}
+
+
+/* HOVER */
+
+#modalAlpha .item-belum:hover {
+
+    background: #f1f5f9;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* NAMA */
+
+#modalAlpha .item-belum b {
+
+    display: block;
+
+    color: #111827;
+
+    font-size: 15px;
+
+    margin-bottom: 4px;
+
+}
+
+
+/* JABATAN */
+
+#modalAlpha .item-belum {
+
+    color: #6b7280;
+
+    font-size: 13px;
+
+}
+
+
+/* BUTTON TUTUP */
+
+#modalAlpha .modal-content > button {
+
+    width: 100%;
+
+    margin-top: 22px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 13px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+#modalAlpha .modal-content > button:hover {
+
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* SCROLLBAR */
+
+#belumAbsen::-webkit-scrollbar {
+
+    width: 5px;
+
+}
+
+#belumAbsen::-webkit-scrollbar-thumb {
+
+    background: #cbd5e1;
+
+    border-radius: 10px;
+
+}
+/* =============================
+   MODAL HADIR HARI INI
+============================= */
+
+#modalHadir .modal-content {
+    width: 420px;
+    max-width: 90%;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    animation: modalHadirIn 0.25s ease;
+}
+
+@keyframes modalHadirIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* HEADER */
+
+#modalHadir .modal-content h2 {
+
+    margin: 0 0 22px;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: #1f2937;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+/* LIST HADIR */
+
+#listHadir {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    max-height: 350px;
+
+    overflow-y: auto;
+
+    padding-right: 4px;
+
+}
+
+
+/* ITEM KARYAWAN */
+
+#modalHadir .item-belum {
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 15px;
+
+    padding: 14px 16px;
+
+    transition: 0.2s;
+
+}
+
+
+/* HOVER */
+
+#modalHadir .item-belum:hover {
+
+    background: #f1f5f9;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* NAMA */
+
+#modalHadir .item-belum b {
+
+    display: block;
+
+    color: #111827;
+
+    font-size: 15px;
+
+    margin-bottom: 7px;
+
+}
+
+
+/* DETAIL */
+
+#modalHadir .item-belum {
+
+    color: #6b7280;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+}
+
+
+/* TOMBOL TUTUP */
+
+#modalHadir .modal-content > button {
+
+    width: 100%;
+
+    margin-top: 22px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 13px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+#modalHadir .modal-content > button:hover {
+
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* SCROLLBAR */
+
+#listHadir::-webkit-scrollbar {
+
+    width: 5px;
+
+}
+
+#listHadir::-webkit-scrollbar-thumb {
+
+    background: #cbd5e1;
+
+    border-radius: 10px;
+
+}
+
+/* =============================
+   APPROVAL INFO
+============================= */
+
+.approval-info {
+
+    margin-top: 12px;
+
+    padding: 11px 14px;
+
+    border-radius: 12px;
+
+    background: #f0fdf4;
+
+    border: 1px solid #bbf7d0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+}
+
+.approval-info small {
+
+    color: #15803d;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+}
+
+.approval-info strong {
+
+    color: #166534;
+
+    font-size: 14px;
+
+}
+
+.approval-info span {
+
+    color: #64748b;
+
+    font-size: 11px;
+
+}
+
+
+/* DITOLAK */
+
+.rejected-info {
+
+    background: #fef2f2;
+
+    border-color: #fecaca;
+
+}
+
+.rejected-info small {
+
+    color: #dc2626;
+
+}
+
+.rejected-info strong {
+
+    color: #991b1b;
+
+}
+/* =============================
+   FILTER ABSENSI
+============================= */
+
+.filter-absensi {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 12px;
+
+    padding: 18px;
+
+    margin: 15px 0 20px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 16px;
+
+    flex-wrap: wrap;
+
+}
+
+.filter-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+}
+
+.filter-group label {
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    color: #64748b;
+
+}
+
+.filter-group input {
+
+    height: 40px;
+
+    padding: 0 12px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 10px;
+
+    background: white;
+
+    color: #334155;
+
+    outline: none;
+
+}
+
+.filter-group input:focus {
+
+    border-color: #2563eb;
+
+}
+
+
+/* BUTTON FILTER */
+
+.btn-filter {
+
+    height: 40px;
+
+    padding: 0 18px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+.btn-filter:hover {
+
+    background: #1d4ed8;
+
+}
+
+
+/* RESET */
+
+.btn-reset {
+
+    height: 40px;
+
+    padding: 0 16px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 10px;
+
+    background: white;
+
+    color: #475569;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+.btn-reset:hover {
+
+    background: #f1f5f9;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .filter-absensi {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+    .filter-group input,
+    .btn-filter,
+    .btn-reset {
+
+        width: 100%;
+
+        box-sizing: border-box;
+
+    }
+
+}
+
+/* =============================
+   MODAL TOLAK PENGAJUAN
+============================= */
+
+#modalTolak .modal-content{
+    width: 460px;
+    max-width: calc(100% - 40px);
+
+    padding: 30px;
+
+    border-radius: 22px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.20);
+
+    position: relative;
+
+    animation: modalTolakMasuk .2s ease;
+}
+
+
+@keyframes modalTolakMasuk{
+
+    from{
+        opacity: 0;
+        transform: translateY(15px) scale(.97);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* CLOSE */
+
+#modalTolak .close{
+
+    position: absolute;
+
+    right: 20px;
+    top: 18px;
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f1f3f7;
+
+    color: #64748b;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+
+#modalTolak .close:hover {
+    background: #fee2e2;
+    color: #ef4444;
+    transform: scale(1.05);
+}
+
+
+/* HEADER */
+
+#modalTolak h2{
+
+    margin: 0 45px 8px 0;
+
+    font-size: 24px;
+
+    color: #111827;
+
+}
+
+
+#modalTolak h2::first-letter{
+
+    color: #ef4444;
+
+}
+
+
+#modalTolak p{
+
+    margin: 0 0 18px;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+}
+
+
+/* TEXTAREA */
+
+#modalTolak textarea{
+
+    width: 100%;
+
+    min-height: 130px;
+
+    box-sizing: border-box;
+
+    resize: vertical;
+
+    padding: 14px 16px;
+
+    border: 1px solid #d9dee8;
+
+    border-radius: 14px;
+
+    background: #f8fafc;
+
+    color: #111827;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    outline: none;
+
+    transition: .2s;
+
+}
+
+
+#modalTolak textarea::placeholder{
+
+    color: #9ca3af;
+
+}
+
+
+#modalTolak textarea:focus{
+
+    background: #ffffff;
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 4px rgba(37,99,235,.10);
+
+}
+
+
+/* BUTTON AREA */
+
+#modalTolak .aksi-modal{
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 22px;
+
+}
+
+
+/* SEMUA BUTTON */
+
+#modalTolak .aksi-modal button{
+
+    border: none;
+
+    border-radius: 11px;
+
+    padding: 11px 20px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+
+/* BATAL */
+
+#modalTolak .btn-batal{
+
+    background: #f1f5f9;
+
+    color: #475569;
+
+}
+
+
+#modalTolak .btn-batal:hover{
+
+    background: #e2e8f0;
+
+}
+
+
+/* TOLAK */
+
+#modalTolak .btn-tolak{
+
+    background: #ef4444;
+
+    color: white;
+
+    box-shadow:
+        0 5px 15px rgba(239,68,68,.20);
+
+}
+
+
+#modalTolak .btn-tolak:hover{
+
+    background: #dc2626;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    #modalTolak .modal-content{
+
+        width: auto;
+
+        padding: 24px;
+
+        margin: 20px;
+
+    }
+
+    #modalTolak .aksi-modal{
+
+        flex-direction: column-reverse;
+
+    }
+
+    #modalTolak .aksi-modal button{
+
+        width: 100%;
+
+    }
+
+}
+
+/* =================================
+   MENU ADMIN - RAPihin
+================================= */
+
+#adminMenu,
+#adminKaryawan,
+#adminRekap {
+
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 16px 20px;
+
+    margin: 4px 0;
+
+    border: none;
+    border-radius: 12px;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: all .2s ease;
+}
+
+
+/* ICON */
+
+#adminMenu i,
+#adminKaryawan i,
+#adminRekap i {
+
+    width: 24px;
+
+    text-align: center;
+
+    font-size: 17px;
+
+    flex-shrink: 0;
+}
+
+
+/* HOVER */
+
+#adminMenu:hover,
+#adminKaryawan:hover,
+#adminRekap:hover {
+
+    background: rgba(255,255,255,.10);
+
+    transform: translateX(4px);
+}
+
+
+/* MENU AKTIF */
+
+#adminMenu.active,
+#adminKaryawan.active,
+#adminRekap.active {
+
+    background: #2563eb;
+
+    box-shadow:
+        0 6px 18px rgba(37,99,235,.25);
+}
+
+
+/* JUDUL MENU ADMIN */
+
+#adminMenuTitle {
+
+    padding: 14px 20px;
+
+    margin-bottom: 8px;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+/* =========================================
+   KARTU KALENDER KERJA
+========================================= */
+
+body.admin-page .kalender-card {
+    width: 100%;
+    min-height: 180px;
+
+    background: #ffffff !important;
+    color: #1e293b !important;
+
+    border-radius: 25px;
+
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,.12);
+
+    transition: .25s ease;
+
+    margin-bottom: 30px;
+}
+
+body.admin-page .kalender-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.15);
+}
+
+body.admin-page .kalender-card i {
+    display: block;
+
+    font-size: 42px;
+
+    color: #2563eb !important;
+
+    margin-bottom: 12px;
+}
+
+body.admin-page .kalender-card h2 {
+    display: block;
+
+    margin: 0 0 8px;
+
+    font-size: 24px;
+
+    color: #111827 !important;
+}
+
+body.admin-page .kalender-card p {
+    display: block;
+
+    margin: 0;
+
+    font-size: 15px;
+
+    color: #64748b !important;
+}
+
+
+/* =========================================
+   MODAL KALENDER
+========================================= */
+
+body.admin-page #modalKalender {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(15,23,42,.60);
+}
+
+body.admin-page #modalKalender.show {
+    display: flex;
+}
+
+body.admin-page #modalKalender .kalender-modal {
+    width: 750px;
+
+    max-width: calc(100vw - 40px);
+
+    max-height: 90vh;
+
+    padding: 30px;
+
+    background: #ffffff;
+
+    border-radius: 24px;
+
+    position: relative;
+
+    overflow-y: auto;
+
+    color: #1e293b;
+}
+
+
+/* CLOSE */
+
+body.admin-page #modalKalender .close {
+    position: absolute;
+
+    top: 18px;
+
+    right: 20px;
+
+    width: 36px;
+
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f1f5f9;
+
+    color: #64748b;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+body.admin-page #modalKalender .close:hover {
+    background: #fee2e2;
+
+    color: #ef4444;
+}
+
+
+/* HEADER */
+
+body.admin-page .kalender-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding-right: 45px;
+}
+
+body.admin-page .kalender-header h2 {
+    margin: 0;
+
+    font-size: 25px;
+
+    color: #111827;
+}
+
+body.admin-page .kalender-header p {
+    margin: 5px 0 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* BULAN */
+
+body.admin-page #bulanKalender {
+    width: 150px;
+
+    height: 42px;
+
+    padding: 0 10px;
+
+    border: 1px solid #dbe2ea;
+
+    border-radius: 10px;
+
+    background: #f8fafc;
+
+    color: #1e293b;
+
+    outline: none;
+}
+
+body.admin-page #bulanKalender:focus {
+    border-color: #2563eb;
+}
+
+
+/* INFO */
+
+body.admin-page .kalender-info {
+    margin-top: 20px;
+
+    padding: 12px 15px;
+
+    border-radius: 12px;
+
+    background: #eff6ff;
+
+    color: #475569;
+
+    font-size: 13px;
+}
+
+
+/* GRID */
+
+body.admin-page #calendarGrid {
+    margin-top: 22px !important;
+
+    display: grid !important;
+
+    grid-template-columns:
+        repeat(7, minmax(0, 1fr)) !important;
+
+    gap: 8px !important;
+
+    width: 100%;
+}
+
+
+/* NAMA HARI */
+
+body.admin-page .calendar-day-name {
+    text-align: center;
+
+    padding: 10px 5px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: #64748b;
+}
+
+
+/* TANGGAL */
+
+body.admin-page .calendar-date {
+    width: 100%;
+
+    min-width: 0;
+
+    height: 75px;
+
+    padding: 10px 5px;
+
+    border-radius: 13px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+
+    transition: .2s;
+}
+
+
+/* KERJA */
+
+body.admin-page .calendar-date.kerja {
+    background: #f0fdf4 !important;
+
+    border: 1px solid #bbf7d0 !important;
+
+    color: #166534 !important;
+}
+
+
+/* LIBUR */
+
+body.admin-page .calendar-date.libur {
+    background: #fef2f2 !important;
+
+    border: 1px solid #fecaca !important;
+
+    color: #b91c1c !important;
+}
+
+
+/* NOMOR */
+
+body.admin-page .calendar-date .nomor {
+    font-size: 17px;
+
+    line-height: 1;
+
+    font-weight: 700;
+}
+
+
+/* STATUS */
+
+body.admin-page .calendar-date .status-hari {
+    display: block;
+
+    margin-top: 7px;
+
+    font-size: 11px;
+
+    line-height: 1;
+
+    font-weight: 600;
+}
+
+
+/* HOVER */
+
+body.admin-page .calendar-date:hover {
+    transform: translateY(-2px);
+}
+
+
+/* FOOTER */
+
+body.admin-page .kalender-footer {
+    margin-top: 22px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #e5e7eb;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+body.admin-page .kalender-footer span {
+    font-size: 13px;
+
+    color: #475569;
+}
+
+body.admin-page .btn-simpan-kalender {
+    margin-left: auto;
+
+    width: auto;
+
+    height: auto;
+
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #4f46e5
+    );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    body.admin-page .kalender-card {
+        min-height: 160px;
+
+        padding: 25px;
+    }
+
+    body.admin-page #modalKalender .kalender-modal {
+        width: calc(100vw - 20px);
+
+        padding: 20px;
+    }
+
+    body.admin-page .kalender-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    body.admin-page #bulanKalender {
+        width: 100%;
+    }
+
+    body.admin-page #calendarGrid {
+        gap: 5px !important;
+    }
+
+    body.admin-page .calendar-date {
+        height: 60px;
+    }
+
+    body.admin-page .calendar-date .nomor {
+        font-size: 14px;
+    }
+
+    body.admin-page .calendar-date .status-hari {
+        font-size: 9px;
+    }
+
+    body.admin-page .kalender-footer {
+        flex-wrap: wrap;
+    }
+
+    body.admin-page .btn-simpan-kalender {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+/* =============================
+   KARTU KALENDER KERJA
+============================= */
+
+body.admin-page .kalender-card {
+    width: 100%;
+    min-height: 180px;
+
+    background: #ffffff !important;
+
+    color: #111827 !important;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,.12);
+
+    transition: .25s ease;
+}
+
+body.admin-page .kalender-card i {
+    font-size: 42px;
+
+    color: #2563eb !important;
+
+    margin-bottom: 12px;
+}
+
+body.admin-page .kalender-card h2 {
+    margin: 0 0 8px;
+
+    font-size: 24px;
+
+    color: #111827 !important;
+}
+
+body.admin-page .kalender-card p {
+    margin: 0;
+
+    font-size: 15px;
+
+    color: #64748b !important;
+}
+
+body.admin-page .kalender-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 18px 40px rgba(37,99,235,.18);
+}
+/* =============================
+   DATA ABSENSI KOSONG
+============================= */
+
+#dataAbsensi .empty-absensi {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px 20px;
+
+    text-align: center;
+
+    color: #64748b;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    margin: 15px 0;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,.06);
+}
+
+#dataAbsensi .empty-absensi .empty-icon {
+    display: block;
+
+    font-size: 38px;
+
+    margin-bottom: 10px;
+}
+
+#dataAbsensi .empty-absensi p {
+    margin: 0;
+
+    color: #64748b;
+}
+/* =============================
+   DATA ABSENSI CARD
+============================= */
+
+.data-absensi-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 25px;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.12);
+
+    margin-bottom: 30px;
+}
+
+
+/* HEADER DATA ABSENSI */
+
+.data-absensi-card .section-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.data-absensi-card .section-header h2 {
+
+    margin: 0;
+
+    font-size: 26px;
+
+    color: #111827;
+
+}
+
+
+/* EXPORT */
+
+.data-absensi-card .btn-export {
+
+    margin: 0;
+
+    width: auto;
+
+    flex-shrink: 0;
+
+}
+
+
+/* TABEL */
+
+.table-wrapper {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+}
+
+
+.table-wrapper table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+
+/* HILANGKAN GARIS ANEH */
+
+.data-absensi-card hr {
+
+    display: none;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .data-absensi-card {
+
+        padding: 20px;
+
+    }
+
+    .data-absensi-card .section-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .data-absensi-card .btn-export {
+
+        width: auto;
+
+    }
+
+}
+/* =============================
+   KARTU JADWAL KARYAWAN
+============================= */
+
+body.admin-page .jadwal-karyawan-card {
+    cursor: pointer;
+
+    background: #ffffff;
+
+    color: #111827;
+
+    min-height: 180px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    border-radius: 24px;
+
+    transition: .25s ease;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,.12);
+}
+
+body.admin-page .jadwal-karyawan-card i {
+    font-size: 42px;
+
+    color: #2563eb;
+
+    margin-bottom: 12px;
+}
+
+body.admin-page .jadwal-karyawan-card h2 {
+    margin: 0 0 8px;
+
+    font-size: 24px;
+
+    color: #111827;
+}
+
+body.admin-page .jadwal-karyawan-card p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 15px;
+}
+
+body.admin-page .jadwal-karyawan-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 40px rgba(37,99,235,.15);
+}
+/* =============================
+   MENU JADWAL KERJA
+============================= */
+
+.admin-tools {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 24px;
+
+    margin: 30px 0;
+}
+
+
+.admin-tools .kalender-card {
+
+    min-height: 180px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    background: white;
+
+    color: #111827;
+
+    border-radius: 25px;
+
+    padding: 30px;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,.12);
+
+    transition: .25s ease;
+
+}
+
+
+.admin-tools .kalender-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 18px 40px rgba(37,99,235,.18);
+
+}
+
+
+.admin-tools .kalender-card i {
+
+    font-size: 42px;
+
+    color: #2563eb;
+
+    margin-bottom: 12px;
+
+}
+
+
+.admin-tools .kalender-card h2 {
+
+    margin: 0 0 8px;
+
+    font-size: 24px;
+
+    color: #111827;
+
+}
+
+
+.admin-tools .kalender-card p {
+
+    margin: 0;
+
+    font-size: 15px;
+
+    color: #64748b;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .admin-tools {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+/* =============================
+   MODAL JADWAL KARYAWAN
+============================= */
+
+#modalJadwalKaryawan {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100000;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(15,23,42,.65);
+
+}
+
+
+#modalJadwalKaryawan.show {
+
+    display: flex;
+
+}
+
+
+#modalJadwalKaryawan .jadwal-modal {
+
+    width: 650px;
+
+    max-width: calc(100vw - 30px);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 25px;
+
+    padding: 30px;
+
+    position: relative;
+
+    color: #1e293b;
+
+}
+
+
+.jadwal-modal h2 {
+
+    margin-bottom: 5px;
+
+}
+
+
+.jadwal-subtitle {
+
+    color: #64748b;
+
+    margin-bottom: 25px;
+
+}
+
+
+.form-jadwal {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.form-jadwal label {
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #475569;
+
+}
+
+
+.form-jadwal select {
+
+    width: 100%;
+
+    height: 45px;
+
+    padding: 0 12px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 10px;
+
+    background: white;
+
+    color: #334155;
+
+    outline: none;
+
+}
+
+
+.form-jadwal select:focus {
+
+    border-color: #2563eb;
+
+}
+
+
+.rotasi-title {
+
+    margin: 10px 0 15px;
+
+    padding: 12px 15px;
+
+    background: #eff6ff;
+
+    border-radius: 12px;
+
+    color: #2563eb;
+
+    font-weight: 700;
+
+}
+
+
+.rotasi-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+
+}
+
+
+.btn-simpan-jadwal {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.btn-simpan-jadwal:hover {
+
+    background: #1d4ed8;
+
+}
+
+
+.jadwal-modal hr {
+
+    border: none;
+
+    border-top: 1px solid #e5e7eb;
+
+    margin: 25px 0;
+
+}
+
+
+.jadwal-item {
+
+    padding: 15px;
+
+    margin-top: 12px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 14px;
+
+}
+
+
+.jadwal-item strong {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+}
+
+
+.jadwal-item small {
+
+    color: #64748b;
+
+    line-height: 1.6;
+
+}
+
+
+.btn-hapus-jadwal {
+
+    margin-top: 10px;
+
+    padding: 7px 12px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #fee2e2;
+
+    color: #dc2626;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+}
+
+
+@media(max-width:600px){
+
+    #modalJadwalKaryawan .jadwal-modal {
+
+        padding: 22px;
+
+    }
+
+    .rotasi-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+/* =====================================================
+   PENGAJUAN - MODERN HR DASHBOARD
+===================================================== */
+
+.pengajuan-header {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 18px 24px;
+    margin-top: 22px;
+    margin-bottom: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+}
+
+.pengajuan-header h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/* =====================================================
+   FILTER
+===================================================== */
+
+.filter-pengajuan {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    background: #f1f5f9;
+    padding: 5px;
+    border-radius: 12px;
+}
+
+.filter-pengajuan-btn {
+    border: none;
+    background: transparent;
+
+    padding: 10px 18px;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #64748b;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.filter-pengajuan-btn:hover {
+    color: #2563eb;
+    background: #e8f0ff;
+}
+
+.filter-pengajuan-btn.active {
+    background: #2563eb;
+    color: #ffffff;
+
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+}
+
+
+/* =====================================================
+   CONTAINER DATA PENGAJUAN
+===================================================== */
+
+.data-pengajuan {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(360px, 1fr));
+
+    gap: 18px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =====================================================
+   CARD PENGAJUAN
+===================================================== */
+
+.data-pengajuan .item {
+    background: #ffffff;
+
+    border: 1px solid #e8edf5;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    box-shadow:
+        0 5px 18px rgba(15, 23, 42, 0.06);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.data-pengajuan .item:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.10);
+}
+
+
+/* garis kecil di sebelah kiri */
+
+.data-pengajuan .item::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 4px;
+
+    background: #2563eb;
+}
+
+
+/* =====================================================
+   NAMA
+===================================================== */
+
+.data-pengajuan .item h3 {
+    margin: 0 0 14px;
+
+    font-size: 16px;
+
+    color: #111827;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* =====================================================
+   INFORMASI
+===================================================== */
+
+.data-pengajuan .item p {
+    margin: 8px 0;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    color: #64748b;
+}
+
+.data-pengajuan .item p b {
+    color: #334155;
+}
+
+
+/* =====================================================
+   STATUS BADGE
+===================================================== */
+
+.data-pengajuan .status {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 6px 11px;
+
+    border-radius: 999px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    margin-top: 5px;
+}
+
+.data-pengajuan .status.approved {
+    color: #047857;
+
+    background: #ecfdf5;
+
+    border: 1px solid #bbf7d0;
+}
+
+.data-pengajuan .status.pending {
+    color: #b45309;
+
+    background: #fffbeb;
+
+    border: 1px solid #fde68a;
+}
+
+.data-pengajuan .status.rejected {
+    color: #b91c1c;
+
+    background: #fef2f2;
+
+    border: 1px solid #fecaca;
+}
+
+
+/* =====================================================
+   APPROVAL INFO
+===================================================== */
+
+.data-pengajuan .approval-info {
+    margin-top: 14px;
+
+    padding: 11px 13px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-left: 3px solid #22c55e;
+
+    border-radius: 10px;
+
+    display: grid;
+
+    grid-template-columns: auto 1fr;
+
+    column-gap: 7px;
+
+    row-gap: 2px;
+}
+
+.data-pengajuan .approval-info small {
+    font-size: 11px;
+
+    color: #64748b;
+}
+
+.data-pengajuan .approval-info strong {
+    font-size: 12px;
+
+    color: #1e293b;
+}
+
+.data-pengajuan .approval-info span {
+    grid-column: 1 / -1;
+
+    font-size: 10px;
+
+    color: #94a3b8;
+
+    margin-top: 2px;
+}
+
+
+/* =====================================================
+   REJECTED INFO
+===================================================== */
+
+.data-pengajuan .rejected-info {
+    border-left-color: #ef4444;
+}
+
+.data-pengajuan .rejection-reason {
+    grid-column: 1 / -1;
+
+    margin-bottom: 7px;
+
+    padding-bottom: 7px;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.data-pengajuan .rejection-reason p {
+    margin: 3px 0 0;
+
+    font-size: 11px;
+
+    color: #64748b;
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.data-pengajuan .approve,
+.data-pengajuan .reject,
+.data-pengajuan .lihatSurat {
+    border: none;
+
+    border-radius: 9px;
+
+    padding: 8px 13px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+
+/* Lihat surat */
+
+.data-pengajuan .lihatSurat {
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    margin-right: 5px;
+}
+
+.data-pengajuan .lihatSurat:hover {
+    background: #dbeafe;
+}
+
+
+/* Setujui */
+
+.data-pengajuan .approve {
+    background: #ecfdf5;
+
+    color: #059669;
+
+    border: 1px solid #bbf7d0;
+}
+
+.data-pengajuan .approve:hover {
+    background: #10b981;
+
+    color: white;
+
+    transform: translateY(-1px);
+}
+
+
+/* Tolak */
+
+.data-pengajuan .reject {
+    background: #fef2f2;
+
+    color: #dc2626;
+
+    border: 1px solid #fecaca;
+
+    margin-left: 4px;
+}
+
+.data-pengajuan .reject:hover {
+    background: #ef4444;
+
+    color: white;
+
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   LEMBUR - NOMINAL LEBIH MENONJOL
+===================================================== */
+
+.data-pengajuan .item p:has(b) {
+    position: relative;
+}
+
+
+/* =====================================================
+   EMPTY STATE
+===================================================== */
+
+.data-pengajuan .empty-absensi {
+    grid-column: 1 / -1;
+
+    background: #ffffff;
+
+    border: 1px dashed #cbd5e1;
+
+    border-radius: 16px;
+
+    padding: 40px;
+
+    text-align: center;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .pengajuan-header {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 16px;
+    }
+
+    .filter-pengajuan {
+        width: 100%;
+    }
+
+    .filter-pengajuan-btn {
+        flex: 1;
+
+        padding: 9px 8px;
+    }
+
+    .data-pengajuan {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =========================================
+   ✨ FINAL POLISH - ADMIN DASHBOARD
+========================================= */
+
+/* BACKGROUND lebih soft */
+body {
+    background:
+        radial-gradient(circle at top left, rgba(255,255,255,.18), transparent 35%),
+        linear-gradient(135deg, #1d4ed8, #3b82f6 55%, #60a5fa);
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1250px;
+}
+
+/* HEADER / HERO */
+.header-card,
+.hero {
+    border: 1px solid rgba(255,255,255,.7);
+    box-shadow:
+        0 20px 45px rgba(15,23,42,.12);
+}
+
+/* JUDUL */
+.header-card h2,
+.hero h2 {
+    letter-spacing: -1px;
+}
+
+/* JAM */
+#jam {
+    letter-spacing: -2px;
+    line-height: 1;
+}
+
+/* CARD STATISTIK */
+.card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.2);
+    box-shadow:
+        0 12px 30px rgba(15,23,42,.12);
+}
+
+/* efek cahaya tipis */
+.card::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    right: -35px;
+    top: -35px;
+
+    background: rgba(255,255,255,.12);
+    border-radius: 50%;
+}
+
+/* ICON */
+.card i {
+    position: relative;
+    z-index: 1;
+}
+
+/* ANGKA */
+.card h2 {
+    position: relative;
+    z-index: 1;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+/* TEXT */
+.card p,
+.card .mini {
+    position: relative;
+    z-index: 1;
+}
+
+/* SECTION */
+.table-card,
+.data-absensi-card {
+    border: 1px solid #eef2f7;
+    box-shadow:
+        0 12px 30px rgba(15,23,42,.07);
+}
+
+/* JUDUL SECTION */
+.table-card h2,
+.data-absensi-card h2 {
+    letter-spacing: -.3px;
+}
+
+/* TABLE HEADER */
+th {
+    background: linear-gradient(135deg,#2563eb,#3b82f6);
+    font-weight: 600;
+}
+
+/* ROW */
+td {
+    color: #475569;
+}
+
+/* EMPTY STATE */
+#dataAbsensi .empty-absensi {
+    border: 1px dashed #cbd5e1;
+    box-shadow: none;
+    background: #f8fafc;
+}
+
+/* AKTIVITAS */
+.activity {
+    padding: 17px 10px;
+}
+
+.activity:hover {
+    background: #f8fafc;
+    border-radius: 10px;
+}
+
+/* NOTIFIKASI */
+.notif-dropdown {
+    border: 1px solid #eef2f7;
+    box-shadow:
+        0 20px 50px rgba(15,23,42,.18);
+}
+
+/* BUTTON */
+.btn-export,
+.btn-filter,
+.btn-simpan-kalender,
+.btn-simpan-jadwal {
+    box-shadow: 0 5px 15px rgba(37,99,235,.18);
+}
+
+/* MOBILE */
+@media(max-width:600px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .header-card,
+    .hero {
+        padding: 25px 20px;
+        border-radius: 22px;
+    }
+
+    .header-card h2,
+    .hero h2 {
+        font-size: 28px;
+    }
+
+    #jam {
+        font-size: 40px;
+    }
+
+    .card {
+        padding: 24px 18px;
+    }
+}
+/* =========================================
+   ✨ DATA ABSENSI - MODERN TABLE
+========================================= */
+
+.data-absensi-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* HEADER */
+
+.data-absensi-card .section-header {
+    padding-bottom: 5px;
+}
+
+.data-absensi-card .section-header h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+
+/* FILTER AREA */
+
+.filter-absensi {
+    background: #f8fafc;
+
+    border: 1px solid #e8edf5;
+
+    box-shadow:
+        inset 0 1px 2px rgba(15,23,42,.02);
+
+    padding: 18px;
+
+    border-radius: 16px;
+}
+
+
+/* INPUT */
+
+.filter-group input {
+    height: 42px;
+
+    border: 1px solid #dbe2ea;
+
+    transition: .2s ease;
+}
+
+.filter-group input:hover {
+    border-color: #93c5fd;
+}
+
+.filter-group input:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37,99,235,.08);
+}
+
+
+/* BUTTON FILTER */
+
+.btn-filter {
+    height: 42px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #3b82f6
+        );
+
+    box-shadow:
+        0 5px 12px rgba(37,99,235,.18);
+
+    transition: .2s ease;
+}
+
+.btn-filter:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 7px 16px rgba(37,99,235,.25);
+}
+
+
+/* RESET */
+
+.btn-reset {
+    height: 42px;
+
+    transition: .2s ease;
+}
+
+.btn-reset:hover {
+    border-color: #cbd5e1;
+
+    transform: translateY(-1px);
+}
+
+
+/* TABLE WRAPPER */
+
+.table-wrapper {
+    border: 1px solid #e8edf5;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    background: white;
+}
+
+
+/* TABLE */
+
+.table-wrapper table {
+    min-width: 650px;
+}
+
+
+/* HEADER */
+
+.table-wrapper th {
+    padding: 15px 18px;
+
+    font-size: 13px;
+
+    letter-spacing: .2px;
+
+    text-transform: none;
+}
+
+
+/* BODY */
+
+.table-wrapper td {
+    padding: 15px 18px;
+
+    font-size: 13px;
+
+    color: #475569;
+
+    border-bottom: 1px solid #f1f5f9;
+
+    transition: .15s ease;
+}
+
+
+/* ROW */
+
+.table-wrapper tbody tr {
+    transition: .15s ease;
+}
+
+.table-wrapper tbody tr:hover {
+    background: #f8fbff;
+}
+
+
+/* NAMA */
+
+.table-wrapper td:first-child {
+    color: #1e293b;
+
+    font-weight: 600;
+}
+
+
+/* BARIS TERAKHIR */
+
+.table-wrapper tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* EMPTY */
+
+#dataAbsensi .empty-absensi {
+    border: none;
+
+    border-radius: 0;
+
+    box-shadow: none;
+
+    margin: 0;
+
+    padding: 45px 20px;
+}
+
+
+/* EXPORT */
+
+.data-absensi-card .btn-export {
+    background:
+        linear-gradient(
+            135deg,
+            #16a34a,
+            #22c55e
+        );
+
+    box-shadow:
+        0 5px 12px rgba(34,197,94,.15);
+
+    transition: .2s ease;
+}
+
+.data-absensi-card .btn-export:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 7px 16px rgba(34,197,94,.22);
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px) {
+
+    .data-absensi-card {
+        padding: 20px;
+    }
+
+    .data-absensi-card .section-header {
+        align-items: flex-start;
+    }
+
+    .data-absensi-card .section-header h2 {
+        font-size: 21px;
+    }
+
+    .filter-absensi {
+        padding: 15px;
+    }
+
+    .table-wrapper {
+        border-radius: 13px;
+    }
+
+}
+/* =============================
+   SEARCH DATA ABSENSI
+============================= */
+
+.search-group {
+    min-width: 230px;
+    flex: 1.3;
+}
+
+.search-input {
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 0 12px;
+
+    background: #ffffff;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 10px;
+
+    transition: .2s ease;
+}
+
+.search-input i {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.search-input input {
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #334155;
+
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.search-input input::placeholder {
+    color: #94a3b8;
+}
+
+.search-input:focus-within {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37,99,235,.10);
+}
+
+.search-input:focus-within i {
+    color: #2563eb;
+}
+
+
+/* FILTER JADI SATU BARIS */
+
+.filter-absensi {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+
+    padding: 18px;
+
+    margin: 15px 0 20px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 16px;
+
+    flex-wrap: nowrap;
+}
+
+
+/* TANGGAL */
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    flex-shrink: 0;
+}
+
+.filter-group label,
+.search-group label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+
+/* INPUT TANGGAL */
+
+.filter-group input {
+    height: 40px;
+
+    padding: 0 12px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 10px;
+
+    background: white;
+
+    color: #334155;
+
+    outline: none;
+}
+
+.filter-group input:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37,99,235,.08);
+}
+
+
+/* BUTTON */
+
+.btn-filter,
+.btn-reset {
+    height: 40px;
+
+    flex-shrink: 0;
+
+    white-space: nowrap;
+}
+
+
+/* MOBILE */
+
+@media(max-width:800px) {
+
+    .filter-absensi {
+        flex-wrap: wrap;
+    }
+
+    .search-group {
+        width: 100%;
+        flex: none;
+    }
+
+    .filter-group {
+        flex: 1;
+    }
+
+}
+
+@media(max-width:600px) {
+
+    .filter-absensi {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-group,
+    .filter-group,
+    .filter-group input,
+    .btn-filter,
+    .btn-reset {
+        width: 100%;
+    }
+
+}
+/* =================================
+   HEADER DATA ABSENSI
+================================= */
+
+.data-absensi-card .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.section-title h2 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.section-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+/* =================================
+   SEARCH MINI
+================================= */
+
+.search-mini {
+    width: 250px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 0 12px;
+
+    background: #f8fafc;
+
+    border: 1px solid #dbe2ea;
+
+    border-radius: 10px;
+
+    transition: .2s ease;
+}
+
+.search-mini i {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.search-mini input {
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    color: #334155;
+}
+
+.search-mini input::placeholder {
+    color: #94a3b8;
+}
+
+.search-mini:focus-within {
+    background: white;
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37,99,235,.08);
+}
+
+.search-mini:focus-within i {
+    color: #2563eb;
+}
+
+
+/* =================================
+   FILTER TANGGAL
+================================= */
+
+.filter-absensi {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+
+    padding: 18px;
+
+    margin: 15px 0 20px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 16px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.filter-group label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.filter-group input {
+    height: 40px;
+
+    padding: 0 12px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 10px;
+
+    background: white;
+
+    color: #334155;
+
+    outline: none;
+}
+
+.filter-group input:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37,99,235,.08);
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media(max-width:700px) {
+
+    .data-absensi-card .section-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .section-actions {
+        width: 100%;
+    }
+
+    .search-mini {
+        flex: 1;
+        width: auto;
+    }
+
+    .filter-absensi {
+        flex-wrap: wrap;
+    }
+
+}
+
+@media(max-width:600px) {
+
+    .section-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-mini,
+    .data-absensi-card .btn-export {
+        width: 100%;
+    }
+
+    .filter-absensi {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-group input,
+    .btn-filter,
+    .btn-reset {
+        width: 100%;
+    }
+
+}
+/* =================================
+   RINGKASAN ABSENSI
+================================= */
+
+.absensi-summary {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+.summary-box {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 15px 17px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 14px;
+
+    transition: .2s ease;
+}
+
+.summary-box:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(15,23,42,.07);
+}
+
+
+/* ICON */
+
+.summary-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    font-size: 16px;
+}
+
+
+/* WARNA ICON */
+
+.summary-icon.total {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.summary-icon.hadir {
+    background: #ecfdf5;
+    color: #16a34a;
+}
+
+.summary-icon.terlambat {
+    background: #fffbeb;
+    color: #d97706;
+}
+
+.summary-icon.alpha {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+
+/* TEXT */
+
+.summary-box span {
+    display: block;
+
+    font-size: 11px;
+
+    color: #64748b;
+
+    margin-bottom: 2px;
+}
+
+.summary-box strong {
+    display: block;
+
+    font-size: 21px;
+
+    color: #111827;
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px) {
+
+    .absensi-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media(max-width:450px) {
+
+    .absensi-summary {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =========================
+   MODAL LEMBUR
+========================= */
+
+#modalLembur {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+#modalLembur.show {
+    display: flex;
+}
+
+#modalLembur .modal-content {
+    width: min(760px, 95vw);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 22px;
+    padding: 26px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* HEADER */
+.lembur-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.lembur-header-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 15px;
+    background: #eef4ff;
+    color: #2864e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.lembur-header h2 {
+    margin: 0;
+    font-size: 23px;
+    color: #111827;
+}
+
+.lembur-header p {
+    margin: 5px 0 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* FORM GRID */
+.lembur-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 16px;
+}
+
+.lembur-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.lembur-form-group.full {
+    grid-column: 1 / -1;
+}
+
+.lembur-form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+}
+
+.lembur-form-group input,
+.lembur-form-group select,
+.lembur-form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #d6deeb;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 14px;
+    outline: none;
+    background: #fff;
+}
+
+.lembur-form-group input:focus,
+.lembur-form-group select:focus,
+.lembur-form-group textarea:focus {
+    border-color: #2864e8;
+    box-shadow: 0 0 0 3px rgba(40, 100, 232, 0.10);
+}
+
+/* TOTAL UANG */
+.total-lembur-box {
+    margin-top: 20px;
+    padding: 18px 20px;
+    border-radius: 14px;
+    background: #eef5ff;
+    border: 1px solid #cfe0ff;
+}
+
+.total-lembur-box span {
+    display: block;
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.total-lembur-box strong {
+    font-size: 27px;
+    color: #2864e8;
+}
+
+/* BUTTON */
+.lembur-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.lembur-actions button {
+    border: none;
+    border-radius: 11px;
+    padding: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-batal-lembur {
+    background: #2864e8;
+    color: white;
+}
+
+.btn-simpan-lembur {
+    background: #2864e8;
+    color: white;
+}
+
+/* =========================
+   RIWAYAT LEMBUR
+========================= */
+
+.riwayat-lembur {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.riwayat-lembur h3 {
+    margin: 0 0 5px;
+    font-size: 19px;
+    color: #111827;
+}
+
+.riwayat-lembur > p {
+    margin: 0 0 15px;
+    color: #64748b;
+    font-size: 14px;
+}
+
+#riwayatLembur {
+    background: #f8fafc;
+    border-radius: 13px;
+    padding: 20px;
+    min-height: 70px;
+    color: #64748b;
+}
+
+/* MOBILE */
+@media (max-width: 650px) {
+
+    #modalLembur {
+        padding: 10px;
+    }
+
+    #modalLembur .modal-content {
+        width: 100%;
+        max-height: 94vh;
+        padding: 20px;
+        border-radius: 18px;
+    }
+
+    .lembur-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lembur-form-group.full {
+        grid-column: auto;
+    }
+
+    .lembur-actions {
+        grid-template-columns: 1fr;
+    }
+}
+#modalLembur .close {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #64748b;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#modalLembur .close:hover {
+    background: #fee2e2;
+    color: #ef4444;
+}

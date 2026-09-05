@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AZNET Attendance</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+    <div class="layout">
+
+    <aside class="sidebar">
+
+    <div class="logo-area">
+
+        <img src="img/logo.png" class="logo">
+
+        <div>
+
+            <h2>AZNET</h2>
+            <small>Attendance</small>
+
+        </div>
+
+    </div>
+
+    <ul>
+
+    <li class="active" onclick="window.location.href='dashboard.html'">
+        <i class="fa-solid fa-house"></i>
+        Dashboard
+    </li>
+
+    <li onclick="window.location.href='absensi.html'">
+        <i class="fa-solid fa-location-dot"></i>
+        Absensi
+    </li>
+
+    <li onclick="window.location.href='riwayat.html'">
+        <i class="fa-solid fa-calendar-days"></i>
+        Riwayat
+    </li>
+    
+<li onclick="window.location.href='cuti.html'">
+    <i class="fa-solid fa-file-circle-plus"></i>
+    Izin & Cuti
+</li>
+
+    <li onclick="window.location.href='statistik.html'">
+        <i class="fa-solid fa-chart-line"></i>
+        Statistik
+    </li>
+
+    <li onclick="window.location.href='profil.html'">
+        <i class="fa-solid fa-user"></i>
+        Profil
+    </li>
+
+    <li onclick="window.location.href='pengaturan.html'">
+        <i class="fa-solid fa-gear"></i>
+        Pengaturan
+    </li>
+
+<!-- =========================
+     MENU ADMIN
+========================= -->
+
+<li id="adminMenu"
+    onclick="window.location.href='admin.html'">
+
+    <i class="fa-solid fa-user-shield"></i>
+    <span>Admin Panel</span>
+
+</li>
+
+<li id="adminKaryawan"
+    onclick="window.location.href='karyawan.html'">
+
+    <i class="fa-solid fa-users"></i>
+    <span>Data Karyawan</span>
+
+</li>
+
+<li id="adminRekap"
+    onclick="window.location.href='rekap.html'">
+
+    <i class="fa-solid fa-chart-column"></i>
+    <span>Rekap Bulanan</span>
+
+</li>
+
+</ul>
+
+<div class="logout">
+    <button onclick="logout()">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Logout
+    </button>
+</div>
+
+</aside>
+
+<div class="content">
+        
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="header-top">
+            <button id="menuToggle" class="menu-toggle">
+    <i class="fa-solid fa-bars"></i>
+</button>
+
+            <div class="profile">
+
+                <img id="fotoUser"
+src="img/default-user.png"
+class="avatar">
+
+                <div>
+
+                    <h2 id="namaUser">👋 Halo, Karyawan</h2>
+
+                    <p id="jabatan">Finance Staff</p>
+
+                    <span class="online">
+                        🟢 Online
+                    </span>
+
+                </div>
+
+            </div>
+
+            <button id="darkMode">
+                🌙
+            </button>
+
+        </div>
+
+        <div class="welcome">
+
+    <div class="welcome-left">
+
+        <h2 id="sapaan"></h2>
+
+        <p id="motivasi"></p>
+
+    </div>
+
+    <div class="weather-card">
+
+        <div class="weather-icon">
+            ☀️
+        </div>
+
+        <div>
+
+            <h3 id="suhu">--°C</h3>
+
+            <p id="cuaca">Memuat...</p>
+
+            <small id="kota">Mendeteksi lokasi...</small>
+
+        </div>
+
+    </div>
+
+</div>
+
+        <div class="info-bar">
+
+            <div class="info-item">
+
+                <i class="fa-solid fa-calendar-days"></i>
+
+                <span id="tanggal"></span>
+
+            </div>
+
+            <div class="info-item">
+
+                <i class="fa-solid fa-clock"></i>
+
+                <span id="jam"></span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- ================= QUICK STATS ================= -->
+
+    <section class="quick-stats">
+
+        <div class="quick-card">
+
+            <i class="fa-solid fa-fire"></i>
+
+            <h3>0 Hari</h3>
+
+            <span>Streak</span>
+
+        </div>
+
+        <div class="quick-card">
+
+            <i class="fa-solid fa-clock"></i>
+
+            <h3 id="jamMasukQuick">
+                --
+            </h3>
+
+            <span>Jam Masuk</span>
+
+        </div>
+
+        <div class="quick-card">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            <h3 id="gpsStatus">
+                Belum
+            </h3>
+
+            <span>GPS</span>
+
+        </div>
+
+        <div class="quick-card">
+
+            <i class="fa-solid fa-camera"></i>
+
+            <h3 id="selfieStatus">
+                Belum
+            </h3>
+
+            <span>Selfie</span>
+
+        </div>
+
+    </section>
+
+    <!-- ================= MENU ================= -->
+
+<!-- =============================
+     LEMBUR SAYA
+============================= -->
+
+<div
+    class="card lembur-saya-card"
+    id="btnLemburSaya"
+    onclick="bukaLemburSaya()">
+
+    <div class="lembur-saya-card-icon">
+        <i class="fa-solid fa-business-time"></i>
+    </div>
+
+    <div class="lembur-saya-card-info">
+        <h3>Lembur Saya</h3>
+        <p>Lihat riwayat dan nominal lembur</p>
+    </div>
+
+    <div class="lembur-saya-card-arrow">
+        <i class="fa-solid fa-chevron-right"></i>
+    </div>
+
+</div>
+
+    <section class="menu">
+
+        <div class="card-menu" id="masuk">
+
+            <div class="icon biru">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+            </div>
+
+            <h3>Absen Masuk</h3>
+
+            <small>Mulai bekerja</small>
+
+        </div>
+
+        <div class="card-menu" id="pulang">
+
+            <div class="icon hijau">
+
+                <i class="fa-solid fa-clock"></i>
+
+            </div>
+
+            <h3>Absen Pulang</h3>
+
+            <small>Selesai bekerja</small>
+
+        </div>
+
+        <div class="card-menu" id="kamera">
+
+            <div class="icon ungu">
+
+                <i class="fa-solid fa-camera"></i>
+
+            </div>
+
+            <h3>Selfie</h3>
+
+            <small>Verifikasi Wajah</small>
+
+        </div>
+
+        <div class="card-menu" id="riwayat"
+onclick="location.href='riwayat.html'">
+
+            <div class="icon orange">
+
+                <i class="fa-solid fa-chart-column"></i>
+
+            </div>
+
+            <h3>Riwayat</h3>
+
+            <small>Lihat Absensi</small>
+
+        </div>
+
+    </section>
+        <!-- ================= PROGRESS ================= -->
+
+    <section class="card">
+
+        <div class="card-header">
+
+            <h2>
+                📈 Progress Kehadiran
+            </h2>
+
+            <span class="badge">
+                Bulan Ini
+            </span>
+
+        </div>
+
+        <div class="progress">
+
+            <div class="progress-fill" id="progressHadir"></div>
+
+        </div>
+
+        <p id="persenHadir">
+            0% Kehadiran
+        </p>
+
+    </section>
+
+    <!-- ================= STATISTIK ================= -->
+
+    <section class="stats">
+
+        <div class="stat-card hadir">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <h2 id="totalHadir">0</h2>
+
+            <p>Hadir</p>
+
+        </div>
+
+        <div class="stat-card telat">
+
+            <i class="fa-solid fa-clock"></i>
+
+            <h2 id="totalTelat">0</h2>
+
+            <p>Terlambat</p>
+
+        </div>
+
+        <div class="stat-card alpha">
+
+            <i class="fa-solid fa-circle-xmark"></i>
+
+            <h2 id="totalAlpha">0</h2>
+
+            <p>Alpha</p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= RIWAYAT ================= -->
+
+<!-- =============================
+     MODAL LEMBUR SAYA
+============================= -->
+
+<div id="modalLemburSaya" class="modal">
+
+    <div class="modal-content lembur-saya-modal">
+
+<button type="button" class="close-lembur-saya" onclick="tutupLemburSaya()">
+    <i class="fa-solid fa-xmark"></i>
+</button>
+
+        <div class="lembur-saya-header">
+
+            <div class="lembur-saya-icon">
+                <i class="fa-solid fa-business-time"></i>
+            </div>
+
+            <div>
+                <h2>Lembur Saya</h2>
+                <p>Riwayat lembur yang telah dicatat admin.</p>
+            </div>
+
+        </div>
+
+<div class="pilih-bulan-lembur">
+    <button type="button" onclick="bulanSebelumnyaLembur()">
+        <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <strong id="bulanLemburSayaText">
+        September 2026
+    </strong>
+
+    <button type="button" onclick="bulanBerikutnyaLembur()">
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
+</div>
+
+        <!-- TOTAL -->
+        <div class="total-lembur-saya">
+
+            <span>Total Lembur</span>
+
+            <strong id="totalLemburSaya">
+                Rp0
+            </strong>
+
+        </div>
+
+        <!-- RIWAYAT -->
+        <div class="riwayat-lembur-saya">
+
+            <h3>📋 Riwayat Lembur</h3>
+
+            <div id="daftarLemburSaya">
+                Memuat data...
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <section class="card">
+
+        <div class="card-header">
+
+            <h2>
+                📋 Riwayat Hari Ini
+            </h2>
+
+            <span class="badge success">
+                Aktif
+            </span>
+
+        </div>
+
+        <div class="history">
+
+            <div class="history-item">
+
+                <span>Status</span>
+
+                <strong id="status">
+                    Belum Absen
+                </strong>
+
+            </div>
+
+            <div class="history-item">
+
+                <span>Jam Masuk</span>
+
+                <strong id="jamMasuk">
+                    -
+                </strong>
+
+            </div>
+
+            <div class="history-item">
+
+                <span>Jam Pulang</span>
+
+                <strong id="jamPulang">
+                    -
+                </strong>
+
+            </div>
+
+            <div class="history-item">
+
+                <span>Lokasi</span>
+
+                <strong id="lokasi">
+                    Belum ada lokasi
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+<div class="card">
+
+    <h2>📸 Selfie Verifikasi</h2>
+
+    <p>Silakan klik tombol <b>Selfie</b> di atas untuk membuka kamera.</p>
+
+    <video id="video" autoplay playsinline></video>
+
+    <canvas id="canvas"></canvas>
+
+    <img id="hasilFoto" alt="Hasil Selfie">
+
+    <br>
+
+    <button id="ambilFoto">
+        📸 Ambil Foto
+    </button>
+
+</div>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+    <p>© 2026 AZNET Attendance System</p>
+</footer>
+
+</div> <!-- tutup .content -->
+</div> <!-- tutup .layout -->
+
+<div id="toast"></div>
+
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>

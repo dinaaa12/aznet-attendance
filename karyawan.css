@@ -1,0 +1,979 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+
+body{
+
+    background:linear-gradient(135deg,#4f8dfd,#4a63f0);
+    min-height:100vh;
+
+}
+
+.container{
+
+    width:90%;
+    margin:auto;
+    padding:40px 0;
+
+}
+
+.hero{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:white;
+    margin-bottom:40px;
+
+}
+
+.hero-left{
+
+    display:flex;
+    gap:20px;
+    align-items:center;
+
+}
+
+.hero-icon{
+
+    width:80px;
+    height:80px;
+    border-radius:25px;
+    background:rgba(255,255,255,.15);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:35px;
+
+}
+
+.hero h1{
+
+    font-size:55px;
+
+}
+
+.hero p{
+
+    margin-top:10px;
+    opacity:.9;
+
+}
+
+.back{
+
+    background:white;
+    color:#2563eb;
+    padding:15px 30px;
+    border-radius:15px;
+    text-decoration:none;
+    font-weight:bold;
+
+}
+
+.top-box{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+
+}
+
+#tambah{
+
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:18px 35px;
+    border-radius:15px;
+    cursor:pointer;
+    font-size:18px;
+
+}
+
+.summary{
+
+    display:flex;
+    gap:20px;
+
+}
+
+.box{
+
+    background:white;
+    width:230px;
+    border-radius:20px;
+    padding:20px;
+
+    display:flex;
+    align-items:center;
+    gap:20px;
+
+}
+
+.box i{
+
+    font-size:35px;
+    color:#2563eb;
+
+}
+
+.box h2{
+
+    font-size:40px;
+
+}
+
+.search-box{
+
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    display:flex;
+    gap:15px;
+    align-items:center;
+    margin-bottom:30px;
+
+}
+
+.search-box input{
+
+    border:none;
+    outline:none;
+    width:100%;
+    font-size:18px;
+
+}
+.modal{
+
+display:none;
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.5);
+
+justify-content:center;
+align-items:center;
+
+z-index:999;
+
+}
+
+.modal-content{
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+width:420px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.25);
+
+animation:zoom .3s;
+
+}
+
+.modal-content h2{
+
+margin-bottom:20px;
+
+}
+
+.modal-content input,
+.modal-content select{
+
+width:100%;
+
+padding:14px;
+
+margin:10px 0;
+
+border-radius:12px;
+
+border:2px solid #ddd;
+
+font-size:15px;
+
+}
+
+.aksi{
+
+display:flex;
+
+justify-content:end;
+
+gap:10px;
+
+margin-top:20px;
+
+}
+
+.aksi button{
+
+padding:12px 20px;
+
+border:none;
+
+border-radius:10px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+}
+
+.aksi button:first-child{
+
+background:#e5e7eb;
+
+}
+
+.aksi button:last-child{
+
+background:#2563eb;
+
+color:white;
+
+}
+
+@keyframes zoom{
+
+from{
+
+transform:scale(.8);
+
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+.card{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:35px;
+
+    margin-bottom:25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.card-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+}
+
+.avatar{
+
+    width:110px;
+
+    height:110px;
+
+    border-radius:50%;
+
+    background:linear-gradient(#dbeafe,#bfdbfe);
+
+    color:#2563eb;
+
+    font-size:42px;
+
+    font-weight:bold;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.info h2{
+
+    font-size:38px;
+
+    margin-bottom:12px;
+
+}
+
+.jabatan{
+
+    display:inline-block;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:8px 18px;
+
+    border-radius:12px;
+
+}
+
+.status{
+
+    display:block;
+
+    margin-top:12px;
+
+    color:#22c55e;
+
+    font-weight:bold;
+
+}
+
+.card-right{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,220px);
+
+    gap:20px;
+
+}
+
+.detail{
+
+    background:#f8fafc;
+
+    padding:18px;
+
+    border-radius:15px;
+
+}
+
+.detail small{
+
+    color:#777;
+
+}
+
+.detail h3{
+
+    margin-top:8px;
+
+}
+
+.aksi{
+
+    grid-column:span 2;
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.edit{
+
+    background:white;
+
+    border:2px solid #2563eb;
+
+    color:#2563eb;
+
+    padding:12px 25px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+}
+
+.hapus{
+
+    background:white;
+
+    border:2px solid #ef4444;
+
+    color:#ef4444;
+
+    padding:12px 25px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+}
+
+.edit:hover{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.hapus:hover{
+
+    background:#ef4444;
+
+    color:white;
+
+}
+.password-box{
+    position: relative;
+}
+
+.password-box input{
+    width: 100%;
+    padding-right: 55px;
+}
+
+.toggle-password{
+    position: absolute;
+    top: 50%;
+    right: 18px;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #6b7280;
+    font-size: 18px;
+}
+
+.toggle-password:hover{
+    color: #2563eb;
+}
+
+/* =========================
+   TOMBOL AKSI KARYAWAN
+========================= */
+
+.detailBtn {
+    background: #ffffff;
+    color: #2563eb;
+    border: 1px solid #2563eb;
+
+    padding: 11px 18px;
+
+    border-radius: 10px;
+
+    font-weight: 600;
+    font-size: 14px;
+
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    transition: all 0.2s ease;
+}
+
+.detailBtn:hover {
+    background: #2563eb;
+    color: white;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
+
+.detail-header{
+
+text-align:center;
+
+margin-bottom:20px;
+
+}
+
+.detail-header img{
+
+width:100px;
+
+height:100px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+margin-bottom:10px;
+
+}
+
+.detail-grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:15px;
+
+margin:20px 0;
+
+}
+
+.statistik{
+
+display:flex;
+
+justify-content:space-around;
+
+margin-top:20px;
+
+font-size:20px;
+
+font-weight:bold;
+
+}
+/* =========================================
+   MODAL DETAIL KARYAWAN
+========================================= */
+
+#modalDetail {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(15, 23, 42, 0.65);
+
+    backdrop-filter: blur(5px);
+
+    z-index: 9999;
+
+    padding: 20px;
+}
+
+
+/* KOTAK MODAL */
+
+#modalDetail .detail-modal {
+
+    position: relative;
+
+    width: min(620px, 95vw);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    border-radius: 24px;
+
+    padding: 32px;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.25);
+
+    animation: modalDetailMasuk 0.25s ease;
+
+}
+
+
+/* ANIMASI */
+
+@keyframes modalDetailMasuk {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(20px) scale(0.96);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0) scale(1);
+
+    }
+
+}
+
+
+/* TOMBOL CLOSE */
+
+#modalDetail .close {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f1f5f9;
+    color: #475569;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    z-index: 2;
+}
+
+#modalDetail .close:hover {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+/* =========================================
+   HEADER DETAIL
+========================================= */
+
+#modalDetail .detail-header {
+
+    text-align: center;
+
+    padding-top: 5px;
+
+    margin-bottom: 28px;
+
+}
+
+
+#modalDetail #detailFoto {
+
+    width: 110px;
+
+    height: 110px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 5px solid #eff6ff;
+
+    box-shadow:
+        0 8px 25px rgba(37, 99, 235, 0.18);
+
+    display: block;
+
+    margin: 0 auto 16px;
+}
+
+
+#modalDetail #detailNama {
+
+    margin: 0;
+
+    font-size: 26px;
+
+    font-weight: 800;
+
+    color: #0f172a;
+}
+
+
+#modalDetail #detailJabatan {
+
+    margin: 6px 0 0;
+
+    color: #64748b;
+
+    font-size: 15px;
+}
+
+
+/* =========================================
+   INFORMASI KARYAWAN
+========================================= */
+
+#modalDetail .detail-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+
+    margin-bottom: 25px;
+}
+
+
+#modalDetail .detail-grid > div {
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 14px;
+
+    padding: 15px 17px;
+
+    min-height: 65px;
+
+    box-sizing: border-box;
+}
+
+
+#modalDetail .detail-grid b {
+
+    display: block;
+
+    font-size: 12px;
+
+    color: #64748b;
+
+    font-weight: 600;
+
+    margin-bottom: 5px;
+}
+
+
+#modalDetail .detail-grid p {
+
+    margin: 0;
+
+    color: #0f172a;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================
+   GARIS
+========================================= */
+
+#modalDetail hr {
+
+    border: 0;
+
+    border-top: 1px solid #e2e8f0;
+
+    margin: 24px 0;
+}
+
+
+/* =========================================
+   STATISTIK
+========================================= */
+
+#modalDetail h3 {
+
+    margin: 0 0 15px;
+
+    color: #0f172a;
+
+    font-size: 18px;
+}
+
+
+#modalDetail .statistik {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+}
+
+
+#modalDetail .statistik > div {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    min-height: 75px;
+
+    border-radius: 16px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+}
+
+
+/* ANGKA */
+
+#modalDetail .statistik span {
+
+    font-size: 22px;
+
+    color: #0f172a;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    #modalDetail .detail-modal {
+
+        padding: 24px 18px;
+
+        border-radius: 20px;
+
+    }
+
+
+    #modalDetail .detail-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    #modalDetail .statistik {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    #modalDetail #detailFoto {
+
+        width: 90px;
+
+        height: 90px;
+
+    }
+
+
+    #modalDetail #detailNama {
+
+        font-size: 23px;
+
+    }
+
+}
+/* =========================
+   RIWAYAT ABSENSI
+========================= */
+
+#detailRiwayatAbsensi {
+    margin-top: 15px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.history-item {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+
+    border-radius: 12px;
+
+    padding: 14px 16px;
+
+    margin-bottom: 10px;
+}
+
+.history-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 10px;
+}
+
+.history-main strong {
+    font-size: 14px;
+    color: #0f172a;
+}
+
+.history-main span {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.history-detail {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    font-size: 13px;
+    color: #475569;
+}
+
+.history-status {
+    background: #dcfce7;
+    color: #15803d;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    font-weight: 600;
+}
+
+.empty-history {
+    text-align: center;
+
+    padding: 20px;
+
+    color: #64748b;
+
+    background: #f8fafc;
+
+    border: 1px dashed #cbd5e1;
+
+    border-radius: 12px;
+}
