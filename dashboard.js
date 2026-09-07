@@ -81,9 +81,9 @@ function toast(pesan, tipe="info"){
         t.classList.add("show");
     },50);
 
-    clearTimeout(window.toastTimer);
+clearTimeout(window.toastTimer);
 
-    window.toastTimer=setTimeout(()=>{
+window.toastTimer = setTimeout(()=>{
         t.classList.remove("show");
     },3000);
 
@@ -328,7 +328,7 @@ if (btnPulang) {
 
     btnPulang.onclick = function () {
 
-         Cek apakah sudah absen masuk
+        // Cek apakah sudah absen masuk
         if (!localStorage.getItem("jamMasuk")) {
 
             toast("⚠️ Silakan Absen Masuk terlebih dahulu!", "error");
@@ -525,7 +525,7 @@ function logout(){
 
 
         // arahkan ke halaman login
-        window.location.href="login.html";
+        window.location.href = "login.html";
 
     }
 
