@@ -1,12 +1,3 @@
-// =====================================
-// AZNET ATTENDANCE SYSTEM
-// Dashboard.js Final Version
-// =====================================
-
-// ===============================
-// ELEMENT
-// ===============================
-
 const body = document.body;
 
 const tanggal = document.getElementById("tanggal");
@@ -49,9 +40,7 @@ const video = document.getElementById("video");
 const canvas = document.getElementById("canvas");
 const hasilFoto = document.getElementById("hasilFoto");
 const ambilFoto = document.getElementById("ambilFoto");
-// ===============================
-// DATA USER
-// ===============================
+
 
 const nama =
 localStorage.getItem("nama") || "Karyawan";
@@ -75,9 +64,7 @@ if(jabatan){
 }
 
 
-// ===============================
-// TOAST
-// ===============================
+
 
 function toast(pesan, tipe="info"){
 
@@ -101,9 +88,7 @@ function toast(pesan, tipe="info"){
     },3000);
 
 }
-// ===============================
-// TANGGAL
-// ===============================
+
 
 if(tanggal){
 
@@ -121,9 +106,7 @@ year:"numeric"
 });
 
 }
-// ===============================
-// JAM
-// ===============================
+
 
 function updateJam(){
 
@@ -139,9 +122,7 @@ new Date().toLocaleTimeString("id-ID");
 updateJam();
 
 setInterval(updateJam,1000);
-// ===============================
-// SAPAAN
-// ===============================
+
 
 function updateSapaan(){
 
@@ -202,18 +183,13 @@ body.style.background=bg;
 updateSapaan();
 
 setInterval(updateSapaan,60000);
-// ===============================
-// DARK MODE
-// ===============================
+
 
 darkMode.onclick=function(){
 
 body.classList.toggle("dark");
 
 };
-// ===============================
-// SIDEBAR
-// ===============================
 
 if(menuToggle){
 
@@ -239,10 +215,6 @@ sidebar.classList.remove("active");
 
 }
 
-// ===============================
-// FOTO PROFIL
-// ===============================
-
 if(fotoUser){
 
     const username =
@@ -262,9 +234,6 @@ if(fotoUser){
     }
 
 }
-// ===============================
-// GPS LOKASI
-// ===============================
 
 async function ambilLokasi() {
 
@@ -289,7 +258,7 @@ async function ambilLokasi() {
                 try {
 
                     const res = await fetch(
-                        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
+                        `https:nominatim.openstreetmap.orgreverse?format=json&lat=${lat}&lon=${lon}`
                     );
 
                     const data = await res.json();
@@ -351,9 +320,7 @@ async function ambilLokasi() {
     });
 
 }
-// ===============================
-// ABSEN PULANG
-// ===============================
+
 
 const btnPulang = document.getElementById("pulang");
 
@@ -361,7 +328,7 @@ if (btnPulang) {
 
     btnPulang.onclick = function () {
 
-        // Cek apakah sudah absen masuk
+         Cek apakah sudah absen masuk
         if (!localStorage.getItem("jamMasuk")) {
 
             toast("⚠️ Silakan Absen Masuk terlebih dahulu!", "error");
@@ -382,9 +349,7 @@ if (btnPulang) {
     };
 
 }
-// ===============================
-// CUACA
-// ===============================
+
 
 async function loadCuaca(){
 
@@ -402,9 +367,7 @@ async function loadCuaca(){
 
         try{
 
-            // ===========================
-            // AMBIL CUACA
-            // ===========================
+          
 
             const weather=await fetch(
             `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code`
@@ -436,9 +399,7 @@ async function loadCuaca(){
 
             cuaca.innerHTML=kondisi;
 
-            // ===========================
-            // AMBIL NAMA KOTA
-            // ===========================
+            
 
             const lokasi=await fetch(
             `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
@@ -468,9 +429,7 @@ async function loadCuaca(){
 }
 
 loadCuaca();
-// ===============================
-// SELFIE
-// ===============================
+
 
 const btnSelfie = document.getElementById("kamera");
 
@@ -513,9 +472,7 @@ if(btnSelfie){
     };
 
 }
-// ===============================
-// AMBIL FOTO
-// ===============================
+
 
 if(ambilFoto){
 
@@ -595,9 +552,7 @@ if(menuRiwayat){
     };
 
 }
-// ==========================
-// STATISTIK
-// ==========================
+
 
 function loadStatistik(){
 
@@ -625,13 +580,6 @@ function loadStatistik(){
     document.getElementById("totalAlpha").innerHTML = alpha;
 
 }
-// ==========================
-// PROGRESS KEHADIRAN
-// ==========================
-
-// =============================
-// PROGRESS
-// =============================
 
 function loadProgress(){
 
@@ -657,9 +605,7 @@ function loadProgress(){
 }
 
 loadProgress();
-// ==========================
-// LOAD DATA ABSENSI
-// ==========================
+
 
 function loadAbsensiHariIni(){
 
@@ -739,9 +685,6 @@ loadProgress();
 loadAbsensiHariIni();
 loadDashboard();
 
-// ===============================
-// LOAD PROFIL
-// ===============================
 
 function loadProfil(){
 
@@ -778,9 +721,7 @@ loadProgress();
 loadAbsensiHariIni();
 loadDashboard();
 
-// =============================
-// MENU ADMIN
-// =============================
+
 
 function cekMenuAdmin(){
 
@@ -800,9 +741,7 @@ function cekMenuAdmin(){
         document.getElementById("adminMenuTitle");
 
 
-    // =============================
-    // KALAU BUKAN ADMIN
-    // =============================
+
 
     if(role !== "admin"){
 
@@ -827,11 +766,9 @@ function cekMenuAdmin(){
 }
 
 
-// Jalankan
+
 cekMenuAdmin();
-// =============================
-// HITUNG STATISTIK OTOMATIS
-// =============================
+
 
 let riwayat =
 JSON.parse(localStorage.getItem("riwayatAbsensi")) || [];
@@ -865,9 +802,7 @@ telat;
 document.getElementById("totalAlpha").innerHTML =
 alpha;
 
-// ==========================
-// AMBIL DATA KARYAWAN
-// ==========================
+
 
 function loadTotalKaryawan(){
 
@@ -884,9 +819,7 @@ function loadTotalKaryawan(){
 
 loadTotalKaryawan();
 
-// ===============================
-// LEMBUR SAYA
-// ===============================
+
 
 let bulanLemburSaya = new Date().getMonth();
 let tahunLemburSaya = new Date().getFullYear();
@@ -909,9 +842,7 @@ function bukaLemburSaya() {
 }
 
 
-// ===============================
-// TUTUP LEMBUR SAYA
-// ===============================
+
 
 function tutupLemburSaya() {
 
@@ -971,9 +902,6 @@ function bulanBerikutnyaLembur() {
     tampilkanLemburSaya();
 }
 
-// ===============================
-// TAMPILKAN LEMBUR SESUAI BULAN
-// ===============================
 
 function tampilkanLemburSaya() {
 
@@ -997,7 +925,7 @@ function tampilkanLemburSaya() {
         );
 
 
-    // FILTER NAMA + BULAN + TAHUN
+
     const lemburSaya =
         semuaLembur.filter(item => {
 
@@ -1036,9 +964,7 @@ function tampilkanLemburSaya() {
         });
 
 
-    // ===============================
-    // HITUNG TOTAL BULAN INI
-    // ===============================
+
 
     const total =
         lemburSaya.reduce((sum, item) => {
@@ -1061,9 +987,6 @@ function tampilkanLemburSaya() {
     }
 
 
-    // ===============================
-    // BELUM ADA DATA
-    // ===============================
 
     if (lemburSaya.length === 0) {
 
@@ -1086,9 +1009,7 @@ function tampilkanLemburSaya() {
     }
 
 
-    // ===============================
-    // URUTKAN TERBARU
-    // ===============================
+
 
     lemburSaya.sort((a, b) =>
         new Date(b.tanggal) -
@@ -1096,9 +1017,6 @@ function tampilkanLemburSaya() {
     );
 
 
-    // ===============================
-    // TAMPILKAN
-    // ===============================
 
     container.innerHTML =
         lemburSaya.map(item => {
