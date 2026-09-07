@@ -1,75 +1,207 @@
-// =============================
-// AZNET ATTENDANCE
-// PROTEKSI HAK AKSES
-// =============================
+// ==========================
+// AZNET LOGIN
+// ==========================
 
-(function(){
+document.addEventListener("DOMContentLoaded", function () {
 
-    const username =
-        localStorage.getItem("username");
+    // ==========================
+    // ELEMENT
+    // ==========================
 
-    const role =
-        localStorage.getItem("role");
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const loginBtn = document.getElementById("loginBtn");
+    const lihatPassword = document.getElementById("lihatPassword");
 
-    // =============================
-    // BELUM LOGIN
-    // =============================
+    // ==========================
+    // TOAST
+    // ==========================
 
-    if(!username || !role){
+    function toast(pesan, tipe = "info") {
 
-        window.location.href = "login.html";
+        let t = document.getElementById("toast");
 
-        return;
+        if (!t) {
+            alert(pesan);
+            return;
+        }
+
+        t.className = "toast " + tipe;
+        t.innerHTML = pesan;
+        t.classList.add("show");
+
+        clearTimeout(window.toastTimer);
+
+        window.toastTimer = setTimeout(function () {
+            t.classList.remove("show");
+        }, 3000);
+    }
+
+    // ==========================
+    // LIHAT PASSWORD
+    // ==========================
+
+    if (lihatPassword && passwordInput) {
+
+        lihatPassword.onclick = function () {
+
+            const icon = this.querySelector("i");
+
+            if (passwordInput.type === "password") {
+
+                passwordInput.type = "text";
+
+                if (icon) {
+                    icon.classList.replace("fa-eye", "fa-eye-slash");
+                }
+
+            } else {
+
+                passwordInput.type = "password";
+
+                if (icon) {
+                    icon.classList.replace("fa-eye-slash", "fa-eye");
+                }
+
+            }
+
+        };
 
     }
 
+    // ==========================
+    // LOGIN
+    // ==========================
 
-    // =============================
-    // CEK HALAMAN
-    // =============================
+    if (loginBtn) {
 
-    const halaman =
-        window.location.pathname
-        .split("/")
-        .pop()
-        .toLowerCase();
+        loginBtn.addEventListener("click", function (e) {
 
+            e.preventDefault();
 
-    // =============================
-    // HALAMAN KHUSUS ADMIN
-    // =============================
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value.trim();
 
-    const halamanAdmin = [
+            // ==========================
+            // VALIDASI
+            // ==========================
 
-        "admin.html",
-        "karyawan.html",
-        "rekap.html"
+            if (username === "" || password === "") {
 
-    ];
+                toast(
+                    "⚠️ Username dan Password wajib diisi!",
+                    "error"
+                );
 
+                return;
 
-    // =============================
-    // STAFF DILARANG MASUK
-    // =============================
+            }
 
-    if(
+            // ==========================
+            // LOGIN ADMIN
+            // ==========================
 
-        halamanAdmin.includes(halaman) &&
+            if (
+                username === "admin" &&
+                password === "admin123"
+            ) {
 
-        role !== "admin"
+                localStorage.setItem("nama", "Administrator");
+                localStorage.setItem("username", "admin");
+                localStorage.setItem("role", "admin");
+                localStorage.setItem("jabatan", "Super Admin");
+                localStorage.setItem("divisi", "Management");
 
-    ){
+                toast(
+                    "✅ Selamat datang Administrator",
+                    "success"
+                );
 
-        alert(
-            "⛔ Akses ditolak!\nHalaman ini khusus Admin."
-        );
+                setTimeout(function () {
 
-        window.location.href =
-            "dashboard.html";
+                    window.location.href = "dashboard.html";
 
-        return;
+                }, 1000);
+
+                return;
+            }
+
+            // ==========================
+            // LOGIN KARYAWAN
+            // ==========================
+
+            let list = [];
+
+            try {
+
+                list = JSON.parse(
+                    localStorage.getItem("karyawan")
+                ) || [];
+
+            } catch (error) {
+
+                list = [];
+
+            }
+
+            const akun = list.find(function (item) {
+
+                return (
+                    item.username === username &&
+                    item.password === password
+                );
+
+            });
+
+            if (akun) {
+
+                localStorage.setItem("nama", akun.nama);
+                localStorage.setItem("username", akun.username);
+                localStorage.setItem("role", akun.role);
+                localStorage.setItem("jabatan", akun.jabatan || "");
+                localStorage.setItem("divisi", akun.divisi || "");
+
+                toast(
+                    "🎉 Selamat datang, " + akun.nama,
+                    "success"
+                );
+
+                setTimeout(function () {
+
+                    window.location.href = "dashboard.html";
+
+                }, 1000);
+
+                return;
+            }
+
+            // ==========================
+            // LOGIN GAGAL
+            // ==========================
+
+            toast(
+                "❌ Username atau Password salah!",
+                "error"
+            );
+
+        });
 
     }
 
+    // ==========================
+    // ENTER = LOGIN
+    // ==========================
 
-})();
+    document.addEventListener("keydown", function (e) {
+
+        if (e.key === "Enter") {
+
+            if (loginBtn) {
+                loginBtn.click();
+            }
+
+        }
+
+    });
+
+});
