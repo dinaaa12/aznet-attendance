@@ -369,9 +369,9 @@ async function loadCuaca(){
 
           
 
-            const weather=await fetch(
-            `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code`
-            );
+const weather = await fetch(
+    `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code`
+);
 
             const data=await weather.json();
 
@@ -401,9 +401,9 @@ async function loadCuaca(){
 
             
 
-            const lokasi=await fetch(
-            `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
-            );
+const lokasi = await fetch(
+    `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
+);
 
             const alamat=await lokasi.json();
 
