@@ -405,3 +405,55 @@ body::after{
     position: static;
     transform: none;
 }
+
+/* FIX POSISI IKON LOGIN */
+.login-box .input-group {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    height: 45px;
+    margin: 12px auto;
+}
+
+.login-box .input-group > i:first-child {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    color: #555;
+    font-size: 16px;
+    z-index: 5;
+    margin: 0;
+}
+
+.login-box .input-group input {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0 42px;
+    border: none;
+    border-radius: 12px;
+    background: #f7f8fc;
+    font-size: 14px;
+    outline: none;
+}
+
+.login-box .input-group #lihatPassword {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #555;
+    z-index: 6;
+}
+
+.login-box .input-group #lihatPassword i {
+    position: static;
+    transform: none;
+    margin: 0;
+}
