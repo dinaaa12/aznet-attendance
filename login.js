@@ -2,32 +2,24 @@
 // LIHAT PASSWORD
 // ==========================
 
+
 const passwordInput = document.getElementById("password");
 const lihatPassword = document.getElementById("lihatPassword");
 
-if(lihatPassword){
-
-    lihatPassword.onclick = function(){
-
+if (lihatPassword && passwordInput) {
+    lihatPassword.addEventListener("click", function () {
         const icon = this.querySelector("i");
 
-        if(passwordInput.type === "password"){
-
+        if (passwordInput.type === "password") {
             passwordInput.type = "text";
-
-            icon.classList.replace("fa-eye","fa-eye-slash");
-
-        }else{
-
+            icon.classList.replace("fa-eye", "fa-eye-slash");
+        } else {
             passwordInput.type = "password";
-
-            icon.classList.replace("fa-eye-slash","fa-eye");
-
+            icon.classList.replace("fa-eye-slash", "fa-eye");
         }
-
-    };
-
+    });
 }
+
 
 // ==========================
 // TOAST
