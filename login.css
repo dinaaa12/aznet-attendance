@@ -457,3 +457,51 @@ body::after{
     transform: none;
     margin: 0;
 }
+
+/* OVERRIDE FINAL POSISI IKON */
+.login-box .input-group {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    height: 45px !important;
+    margin: 12px auto !important;
+}
+
+.login-box .input-group > i.fa-user,
+.login-box .input-group > i.fa-lock {
+    position: absolute !important;
+    left: 15px !important;
+    top: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translateY(-50%) !important;
+    display: block !important;
+    margin: 0 !important;
+    z-index: 5 !important;
+}
+
+.login-box .input-group input {
+    width: 100% !important;
+    height: 45px !important;
+    padding: 0 42px !important;
+    box-sizing: border-box !important;
+}
+
+.login-box .input-group #lihatPassword {
+    position: absolute !important;
+    right: 15px !important;
+    left: auto !important;
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translateY(-50%) !important;
+    display: flex !important;
+    margin: 0 !important;
+    z-index: 10 !important;
+}
+
+.login-box .input-group #lihatPassword i {
+    position: static !important;
+    transform: none !important;
+    margin: 0 !important;
+}
