@@ -322,3 +322,43 @@ body::after{
     background:#2563eb;
 
 }
+
+/* PERBAIKAN FORM LOGIN */
+.login-box input[type="text"],
+.login-box input[type="password"] {
+    width: 100%;
+    max-width: 320px;
+    height: 42px;
+    padding: 0 15px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.95);
+    color: #222;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+    margin: 5px 0;
+}
+
+.login-box input:focus {
+    border-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.2);
+}
+
+.login-box input::placeholder {
+    color: #777;
+}
+
+.login-box button {
+    cursor: pointer;
+}
+
+.login-box .login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 320px;
+    margin: 10px auto 20px;
+    font-size: 13px;
+}
